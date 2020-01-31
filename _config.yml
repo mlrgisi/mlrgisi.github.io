@@ -3,10 +3,10 @@ markdown:         kramdown
 highlighter:      rouge
 
 # Setup
-title:            Machine Learning Group
+title:            Machine Learning Research Group
 #tagline:         ''
 description:      'Electronics and Communication Sciences Unit <br> <br> Indian Statistical Institute'
-url:              https://mlgisi.github.io
+url:              https://mlrgisi.github.io
 baseurl:          ''
                   # the optional subpath of your site, e.g. "/blog"
                   # NB: This applies to all pages in your Jekyll site.
