@@ -40,9 +40,17 @@ title: Home
 Swal.fire({
           title: 'Announcement!',
           text: 'Enrollment to Winter School on Deep Learning 2025 is live!',
-          icon: 'success',
-          confirmButtonText: 'Cool'
-        })
+          icon: 'info',
+          confirmButtonText: 'Visit',
+          showCloseButton: true,
+        }).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    window.location.replace(
+  "https://sites.google.com/view/wsdl2025",
+);
+  }
+})
 </script>
 <h1>Research Highlights </h1>
 <div class="flex-container2">
