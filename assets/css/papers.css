@@ -1,18 +1,3 @@
-body {
-  font-family: 'Georgia', serif;
-  background: #f5f0e6 url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-  margin: 0;
-  padding: 40px 20px;
-  color: #3e3e3e;
-}
-
-h1 {
-  text-align: center;
-  color: #3e3e3e;
-  margin-bottom: 40px;
-  font-family: 'Garamond', 'Georgia', serif;
-}
-
 .papers-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
