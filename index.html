@@ -3,6 +3,8 @@ layout: index
 title: Home
 ---
 <link rel="stylesheet" href="./assets/css/card.css">
+<link rel="stylesheet" href="./assets/css/paper.css">
+<script src="./assets/js/paper.js"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
 <style>
@@ -163,6 +165,53 @@ Our contributions as part of the Machine Learning Research Group (MLRG) can be b
         <!--MLRG is actively investigating the scope of applying deep generative models for digitally restoring the heritage of national importance.-->
     </li>
 </ul>
+
+  <div class="paper-archive-container">
+  <h1>Published Papers Archive</h1>
+  <div class="search-panel">
+    <div>
+      <label for="yearFilter">Year:</label>
+      <select id="yearFilter" onchange="renderPapers()">
+        <option value="all">All</option>
+      </select>
+    </div>
+    <div>
+      <label for="authorFilter">Author:</label>
+      <input type="text" id="authorFilter" placeholder="Search authors..." oninput="renderPapers()" />
+    </div>
+    <div>
+      <label for="textFilter">Text:</label>
+      <input type="text" id="textFilter" placeholder="Search title/abstract..." oninput="renderPapers()" />
+    </div>
+  </div>
+  <div class="papers-container"></div>
+</div>
+  <div style="text-align: center; margin-bottom: 30px;">
+    <label for="yearFilter" style="margin-right: 10px;">Filter by Year:</label>
+    <select id="yearFilter" onchange="renderPapers()">
+      <option value="all">All</option>
+    </select>
+  </div>
+  <div class="papers-container"></div>
+
+  <!-- Modal -->
+  <div id="citationModal" class="paper_modal">
+    <div class="paper_modal-content">
+      <div class="paper_modal-header">
+        <span>Citation (BibTeX)</span>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <button class="paper-btn" onclick="copyBibtex()" title="Copy to Clipboard">
+            <i class="fas fa-copy"></i>
+          </button>
+          <button class="paper_close-btn" onclick="closeModal()">&times;</button>
+        </div>
+      </div>
+      <div id="bibtexContent"></div>
+    </div>
+  </div>
+
+  <script src="papers.js"></script>
+
 
 
 <h1>Our Recent Publications</h1>
