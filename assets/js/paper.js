@@ -1,29 +1,5 @@
 const papers = [
   {
-    title: "Understanding *Transformer* Models in NLP",
-    authors: "Jane Doe, John Smith",
-    abstract: "This paper explores the mechanisms behind **transformer models** and their impact on modern NLP tasks. It discusses `self-attention`, encoder-decoder architectures, and scalability issues.",
-    bibtex: `@article{doe2025transformer,
-  title={Understanding Transformer Models in NLP},
-  author={Doe, Jane and Smith, John},
-  journal={Journal of Machine Learning},
-  year={2025}
-}`,
-    published: "Jan 2025"
-  },
-  {
-    title: "A Survey of **Large Language Models**",
-    authors: "Alice Zhang, Bob Lee",
-    abstract: "Large language models (LLMs) like *GPT* and *PaLM* are transforming the AI landscape. This survey summarizes current progress and challenges in **training**, evaluation, and application.",
-    bibtex: `@article{zhang2025llm,
-  title={A Survey of Large Language Models},
-  author={Zhang, Alice and Lee, Bob},
-  journal={AI Review},
-  year={2025}
-}`,
-    published: "Feb 2025"
-  },
-  {
     title: "The Goldilocks Principle: Achieving Just Right Boundary Fidelity for Long-Tailed Classification",
     authors: "Faizanuddin Ansari, Abhranta Panigrahi and Swagatam Das",
     abstract: "This study addresses the challenges of learning from long-tailed class imbalances in deep neural networks, particularly for image recognition. Long-tailed class imbalances occur when a dataset's class distribution is highly skewed, with a few head classes containing many instances and numerous tail classes having fewer instances. This imbalance becomes problematic when traditional classification methods, especially deep learning models, prioritize accuracy in the more frequent classes, neglecting the less common ones. Furthermore, these methods struggle to maintain consistent boundary fidelity—decision boundaries that are sharp enough to distinguish classes yet smooth enough to generalize well. Hard boundaries, often caused by overfitting tail classes, amplify intra-class variations, while overly soft boundaries blur distinctions between classes, reducing classification accuracy. We propose a dual-branch ...",
@@ -31,6 +7,18 @@ const papers = [
   title={The Goldilocks Principle: Achieving Just Right Boundary Fidelity for Long-Tailed Classification},
   author={Faizanuddin Ansari, Abhranta Panigrahi and Swagatam Das},
   journal={IEEE Transactions on Emerging Topics in Computational Intelligence},
+  year={2025}
+}`,
+    published: "Apr 2025"
+  },
+  {
+    title: "Force of Attraction-Based Distribution Calibration for Enhancing Minority Class Representation",
+    authors: "Priyobrata Mondal, Faizanuddin Ansari, Swagatam Das and Pourya Shamsolmoali",
+    abstract: "This study addresses the challenges of learning from long-tailed class imbalances in deep neural networks, particularly for image recognition. Long-tailed class imbalances occur when a dataset's class distribution is highly skewed, with a few head classes containing many instances and numerous tail classes having fewer instances. This imbalance becomes problematic when traditional classification methods, especially deep learning models, prioritize accuracy in the more frequent classes, neglecting the less common ones. Furthermore, these methods struggle to maintain consistent boundary fidelity—decision boundaries that are sharp enough to distinguish classes yet smooth enough to generalize well. Hard boundaries, often caused by overfitting tail classes, amplify intra-class variations, while overly soft boundaries blur distinctions between classes, reducing classification accuracy. We propose a dual-branch ...",
+    bibtex: `@article{ansari2025Goldilocks,
+  title="{Force of Attraction-Based Distribution Calibration for Enhancing Minority Class Representation}",
+  author={Priyobrata Mondal, Faizanuddin Ansari, Swagatam Das & Pourya Shamsolmoali},
+  journal={IEEE International Joint Conference on Neural Networks (IJCNN 2025)},
   year={2025}
 }`,
     published: "Apr 2025"
