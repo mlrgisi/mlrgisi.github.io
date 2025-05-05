@@ -20,26 +20,26 @@
 }
 
 .paper-title {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-bottom: 10px;
   color: #2c2c2c;
 }
 
 .paper-authors {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: #6e5849;
   margin-bottom: 14px;
 }
 
 .paper-abstract {
-  font-size: 0.92rem;
+  font-size: 0.8rem;
   color: #433;
   margin-bottom: 8px;
 }
 
 .read-more {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: #7b5c3f;
   cursor: pointer;
   user-select: none;
@@ -51,7 +51,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
+  font-size: 0.70rem;
   color: #7e6d5a;
 }
 
@@ -63,7 +63,7 @@
 .paper-btn {
   background: none;
   border: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #7b5c3f;
   cursor: pointer;
   padding: 6px;
@@ -111,7 +111,7 @@
 .paper_close-btn {
   background: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #7b5c3f;
   cursor: pointer;
 }
