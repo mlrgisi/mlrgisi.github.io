@@ -37,17 +37,17 @@ const papers = [
   }
 ];
 
-function populateYearDropdown() {
-  const yearSet = new Set(papers.map(p => p.published.match(/\d{4}/)?.[0]).filter(Boolean));
-  const dropdown = document.getElementById("yearFilter");
-  dropdown.innerHTML = '<option value="all">All</option>';
-  Array.from(yearSet).sort().reverse().forEach(year => {
-    const option = document.createElement("option");
-    option.value = year;
-    option.textContent = year;
-    dropdown.appendChild(option);
-  });
-}
+// function populateYearDropdown() {
+//   const yearSet = new Set(papers.map(p => p.published.match(/\d{4}/)?.[0]).filter(Boolean));
+//   const dropdown = document.getElementById("yearFilter");
+//   dropdown.innerHTML = '<option value="all">All</option>';
+//   Array.from(yearSet).sort().reverse().forEach(year => {
+//     const option = document.createElement("option");
+//     option.value = year;
+//     option.textContent = year;
+//     dropdown.appendChild(option);
+//   });
+// }
 
 function renderPapers() {
   const container = document.querySelector('.papers-container');
