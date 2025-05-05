@@ -171,22 +171,15 @@ Our contributions as part of the Machine Learning Research Group (MLRG) can be b
 
   <div class="paper-archive-container">
   <h1>Published Papers Archive</h1>
-  <div class="search-panel">
-    <div>
-      <label for="yearFilter">Year:</label>
-      <select id="yearFilter" onchange="renderPapers()">
+  <div class="unified-search-container">
+      <select id="filterType" onchange="renderPapers()">
         <option value="all">All</option>
+        <option value="year">Year</option>
+        <option value="author">Author</option>
+        <option value="text">Title/Abstract</option>
       </select>
+      <input type="text" id="filterInput" placeholder="Search..." oninput="renderPapers()" />
     </div>
-    <div>
-      <label for="authorFilter">Author:</label>
-      <input type="text" id="authorFilter" placeholder="Search authors..." oninput="renderPapers()" />
-    </div>
-    <div>
-      <label for="textFilter">Text:</label>
-      <input type="text" id="textFilter" placeholder="Search title/abstract..." oninput="renderPapers()" />
-    </div>
-  </div>
   <div class="papers-container"></div>
 </div>
   <div style="text-align: center; margin-bottom: 30px;">
