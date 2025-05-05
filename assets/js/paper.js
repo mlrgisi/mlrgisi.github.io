@@ -22,6 +22,18 @@ const papers = [
   year={2025}
 }`,
     published: "Feb 2025"
+  },
+  {
+    title: "The Goldilocks Principle: Achieving Just Right Boundary Fidelity for Long-Tailed Classification",
+    authors: "Faizanuddin Ansari, Abhranta Panigrahi and Swagatam Das",
+    abstract: "This study addresses the challenges of learning from long-tailed class imbalances in deep neural networks, particularly for image recognition. Long-tailed class imbalances occur when a dataset's class distribution is highly skewed, with a few head classes containing many instances and numerous tail classes having fewer instances. This imbalance becomes problematic when traditional classification methods, especially deep learning models, prioritize accuracy in the more frequent classes, neglecting the less common ones. Furthermore, these methods struggle to maintain consistent boundary fidelity—decision boundaries that are sharp enough to distinguish classes yet smooth enough to generalize well. Hard boundaries, often caused by overfitting tail classes, amplify intra-class variations, while overly soft boundaries blur distinctions between classes, reducing classification accuracy. We propose a dual-branch ...",
+    bibtex: `@article{ansari2025Goldilocks,
+  title={The Goldilocks Principle: Achieving Just Right Boundary Fidelity for Long-Tailed Classification},
+  author={Faizanuddin Ansari, Abhranta Panigrahi and Swagatam Das},
+  journal={IEEE Transactions on Emerging Topics in Computational Intelligence},
+  year={2025}
+}`,
+    published: "Apr 2025"
   }
 ];
 
