@@ -165,27 +165,3 @@
   outline: none;
   border-color: #bfa87a;
 }
-
-
-.unified-search-container {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-}
-
-.unified-search-container select,
-.unified-search-container input {
-  padding: 10px 14px;
-  font-size: 0.95rem;
-  border: 1px solid #c2b59b;
-  border-radius: 6px;
-  background-color: #fdf8f2;
-}
-
-.unified-search-container input:focus,
-.unified-search-container select:focus {
-  outline: none;
-  border-color: #bfa87a;
-}
