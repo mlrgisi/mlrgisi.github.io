@@ -1,0 +1,220 @@
+@import 'katex/dist/katex.min.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 59 130 246;
+  --primary-dark: 37 99 235;
+  --secondary: 139 92 246;
+  --accent: 16 185 129;
+  --background: 255 255 255;
+  --foreground: 15 23 42;
+  --muted: 248 250 252;
+  --border: 226 232 240;
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
+}
+
+[data-theme="dark"] {
+  --primary: 96 165 250;
+  --primary-dark: 59 130 246;
+  --secondary: 167 139 250;
+  --accent: 52 211 153;
+  --background: 2 6 23;
+  --foreground: 248 250 252;
+  --muted: 15 23 42;
+  --border: 30 41 59;
+  --card: 15 23 42;
+  --card-foreground: 248 250 252;
+}
+
+* {
+  border-color: rgb(var(--border));
+}
+
+body {
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+  transition: all 0.3s ease;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, 
+    rgb(var(--primary) / 0.1) 0%, 
+    rgb(var(--secondary) / 0.1) 50%, 
+    rgb(var(--accent) / 0.1) 100%);
+}
+
+.glass-effect {
+  backdrop-filter: blur(16px);
+  background: rgb(var(--card) / 0.8);
+  border: 1px solid rgb(var(--border) / 0.2);
+}
+
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.research-card {
+  background: linear-gradient(145deg, 
+    rgb(var(--card)) 0%, 
+    rgb(var(--muted)) 100%);
+  border: 1px solid rgb(var(--border));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.research-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 32px 64px -12px rgb(var(--primary) / 0.3);
+  border-color: rgb(var(--primary));
+}
+
+.neural-network-bg {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgb(var(--primary) / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgb(var(--secondary) / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgb(var(--accent) / 0.05) 0%, transparent 50%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, 
+    rgb(var(--primary)), 
+    rgb(var(--secondary)), 
+    rgb(var(--accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.citation-popup {
+  background: rgb(var(--card));
+  border: 1px solid rgb(var(--border));
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+}
+
+.news-notification {
+  animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.team-card {
+  background: linear-gradient(145deg, 
+    rgb(var(--card)) 0%, 
+    rgb(var(--muted) / 0.5) 100%);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-card:hover {
+  transform: translateY(-8px) rotateY(5deg);
+  box-shadow: 0 25px 50px -12px rgb(var(--primary) / 0.25);
+}
+
+.publication-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .publication-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.collaboration-avatar {
+  transition: all 0.3s ease;
+}
+
+.collaboration-avatar:hover {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.internal-author {
+  border: 2px solid rgb(var(--primary));
+}
+
+.external-author {
+  border: 2px solid rgb(var(--secondary));
+}
+
+.alumni-author {
+  border: 2px solid rgb(var(--accent));
+}
+
+.research-tag {
+  background: linear-gradient(135deg, 
+    rgb(var(--primary) / 0.1), 
+    rgb(var(--secondary) / 0.1));
+  border: 1px solid rgb(var(--primary) / 0.3);
+  transition: all 0.3s ease;
+}
+
+.research-tag:hover {
+  background: linear-gradient(135deg, 
+    rgb(var(--primary) / 0.2), 
+    rgb(var(--secondary) / 0.2));
+  transform: scale(1.05);
+}
+
+.glass-effect {
+  backdrop-filter: blur(16px);
+  background: rgb(var(--card) / 0.8);
+  border: 1px solid rgb(var(--border) / 0.2);
+}
+
+/* Enhanced Glassomorphism Modal */
+.glassomorphism-modal {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .glassomorphism-modal {
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.8) 0%,
+    rgba(30, 41, 59, 0.7) 50%,
+    rgba(51, 65, 85, 0.6) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
