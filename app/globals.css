@@ -1,4 +1,5 @@
 @import 'katex/dist/katex.min.css';
+@import 'highlight.js/styles/github.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,7 +17,7 @@
   --card-foreground: 15 23 42;
 }
 
-[data-theme="dark"] {
+html.dark {
   --primary: 96 165 250;
   --primary-dark: 59 130 246;
   --secondary: 167 139 250;
@@ -27,6 +28,72 @@
   --border: 30 41 59;
   --card: 15 23 42;
   --card-foreground: 248 250 252;
+}
+
+/* Dark theme for highlight.js */
+html.dark .hljs {
+  background: rgb(15 23 42) !important;
+  color: rgb(248 250 252) !important;
+}
+
+html.dark .hljs-keyword,
+html.dark .hljs-selector-tag,
+html.dark .hljs-literal,
+html.dark .hljs-section,
+html.dark .hljs-link {
+  color: rgb(96 165 250) !important;
+}
+
+html.dark .hljs-string {
+  color: rgb(52 211 153) !important;
+}
+
+html.dark .hljs-number,
+html.dark .hljs-regexp,
+html.dark .hljs-addition {
+  color: rgb(251 146 60) !important;
+}
+
+html.dark .hljs-comment,
+html.dark .hljs-quote,
+html.dark .hljs-deletion {
+  color: rgb(156 163 175) !important;
+}
+
+html.dark .hljs-function,
+html.dark .hljs-class {
+  color: rgb(167 139 250) !important;
+}
+
+/* MD Editor dark theme support */
+html.dark .w-md-editor {
+  background-color: rgb(15 23 42) !important;
+  border-color: rgb(30 41 59) !important;
+}
+
+html.dark .w-md-editor-text-pre,
+html.dark .w-md-editor-text-input,
+html.dark .w-md-editor-text {
+  background-color: rgb(15 23 42) !important;
+  color: rgb(248 250 252) !important;
+}
+
+html.dark .w-md-editor-toolbar {
+  background-color: rgb(30 41 59) !important;
+  border-color: rgb(51 65 85) !important;
+}
+
+html.dark .w-md-editor-toolbar button {
+  color: rgb(156 163 175) !important;
+}
+
+html.dark .w-md-editor-toolbar button:hover {
+  background-color: rgb(51 65 85) !important;
+  color: rgb(248 250 252) !important;
+}
+
+html.dark .w-md-editor-preview {
+  background-color: rgb(15 23 42) !important;
 }
 
 * {
@@ -50,6 +117,33 @@ body {
   backdrop-filter: blur(16px);
   background: rgb(var(--card) / 0.8);
   border: 1px solid rgb(var(--border) / 0.2);
+}
+
+/* Enhanced Glassomorphism Modal */
+.glassomorphism-modal {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+html.dark .glassomorphism-modal {
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.8) 0%,
+    rgba(30, 41, 59, 0.7) 50%,
+    rgba(51, 65, 85, 0.6) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .hover-lift {
@@ -186,35 +280,80 @@ body {
   transform: scale(1.05);
 }
 
-.glass-effect {
-  backdrop-filter: blur(16px);
-  background: rgb(var(--card) / 0.8);
-  border: 1px solid rgb(var(--border) / 0.2);
+/* Blog-specific styles */
+.prose {
+  max-width: none;
 }
 
-/* Enhanced Glassomorphism Modal */
-.glassomorphism-modal {
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.25) 0%,
-    rgba(255, 255, 255, 0.15) 50%,
-    rgba(255, 255, 255, 0.1) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(255, 255, 255, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+.prose pre {
+  position: relative;
+  background-color: rgb(var(--muted)) !important;
+  border: 1px solid rgb(var(--border)) !important;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
 }
 
-[data-theme="dark"] .glassomorphism-modal {
-  background: linear-gradient(135deg, 
-    rgba(15, 23, 42, 0.8) 0%,
-    rgba(30, 41, 59, 0.7) 50%,
-    rgba(51, 65, 85, 0.6) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+.prose code {
+  background-color: rgb(var(--muted)) !important;
+  color: rgb(var(--foreground)) !important;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose pre code {
+  background-color: transparent !important;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+.prose blockquote {
+  border-left: 4px solid rgb(var(--primary));
+  background-color: rgb(var(--primary) / 0.05);
+  padding: 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  margin: 1.5rem 0;
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+.prose table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid rgb(var(--border));
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.prose th {
+  background-color: rgb(var(--muted));
+  font-weight: 600;
+}
+
+/* KaTeX dark theme support */
+html.dark .katex {
+  color: rgb(248 250 252) !important;
+}
+
+html.dark .katex .mord {
+  color: rgb(248 250 252) !important;
+}
+
+html.dark .katex .mbin,
+html.dark .katex .mrel {
+  color: rgb(96 165 250) !important;
+}
+
+html.dark .katex .mop {
+  color: rgb(167 139 250) !important;
 }
