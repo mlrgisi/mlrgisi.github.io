@@ -9,7 +9,8 @@
 /coverage
 
 # junk
-/app/blog
+/app/blog/
+instruction.txt
 
 # next.js
 /.next/
