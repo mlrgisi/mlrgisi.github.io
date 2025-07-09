@@ -1,4 +1,0 @@
-sudo gem install jekyll
-bundle update
-bundle exec jekyll serve
-
