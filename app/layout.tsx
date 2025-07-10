@@ -36,7 +36,7 @@ export default function RootLayout({
               </main>
               <Footer />
               <PageInfoTray />
-              <ImportantMessageModal />
+              {/* <ImportantMessageModal /> */}
             </div>
           </LastUpdatedProvider>
         </ThemeProvider>
