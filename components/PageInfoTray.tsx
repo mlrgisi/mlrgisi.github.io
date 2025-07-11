@@ -161,17 +161,18 @@ export function PageInfoTray() {
       </div>
 
       <div className="text-xs text-gray-500 dark:text-gray-400 text-center">
-        ♪ Für Elise - Ludwig van Beethoven
+        {/* ♪ Für Elise - Ludwig van Beethoven */}
+        আমার মুক্তি আলোয় আলোয় – রবীন্দ্রনাথ ঠাকুর <br/> <a href="https://youtu.be/8CAYFaxaHx4">Piano by অরূপ পাল</a>
       </div>
     </div>
   );
 
   return (
     <>
-      {/* Audio element - always rendered and hidden to preserve state */}
+      {/* Audio element - always rendered and hidden to preserve state */} {/* FurElise.ogg */}
       <audio
         ref={audioRef}
-        src="/music/FurElise.ogg"
+        src="/music/Amar Mukti Aloy Aloy by Arup Paul.mp3"
         muted={isMuted}
         loop
         preload="metadata"
