@@ -6,6 +6,7 @@ import { Github, Twitter, Linkedin, Mail, MapPin, Map, Phone, ExternalLink, Libr
 import ISI from '../public/ISI.png';
 import MLRG from '../public/MLRG.png';
 import { getBuildInfo, formatBuildTime } from '@/lib/build-info';
+import { ExternalLinkWrapper } from './ExternalLinkWrapper';
 
 export function Footer() {
   const [buildInfo, setBuildInfo] = useState<{ buildTime: string; isDevelopment: boolean } | null>(null);
@@ -86,6 +87,7 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
+                {/**************
                 <motion.a
                   key={link.label}
                   href={link.href}
@@ -95,7 +97,20 @@ export function Footer() {
                   aria-label={link.label}
                 >
                   <link.icon className="w-5 h-5" />
-                </motion.a>
+                </motion.a> 
+                ***************/}
+                <ExternalLinkWrapper
+                  key={link.label}
+                  href={link.href}
+                  className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <link.icon className="w-5 h-5" />
+                  </motion.div>
+                </ExternalLinkWrapper>
               ))}
             </div>
           </div>
