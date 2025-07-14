@@ -74,7 +74,7 @@ export function ExternalLinkWrapper({
 
   const handleCancel = () => {
     setShowAlert(false);
-    setCountdown(2);
+    setCountdown(4);
   };
 
   // Countdown effect
