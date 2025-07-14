@@ -547,7 +547,7 @@ export default function TeamPage() {
           {member.citations && (
             <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
               <div className="flex items-center justify-center mb-1">
-                <TrendingUp className="w-4 h-4 text-orange-50 mr-1" />
+                <TrendingUp className="w-4 h-4 text-orange-500 mr-1" />
                 <span className="text-xl font-bold text-gray-800 dark:text-gray-200">
                   {member.citations}<sup>+</sup>
                 </span>
