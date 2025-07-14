@@ -509,7 +509,7 @@ export default function TeamPage() {
         </div>
 
         {/* Stats */}
-        <div className="flex gap-4 mb-6 w-full place-items-center">
+        <div className="flex items-center gap-4 mb-6 w-full place-items-center">
         {/* <div className="flex gap-4 mb-6"> */}
           {member.paperCount && (
             <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
