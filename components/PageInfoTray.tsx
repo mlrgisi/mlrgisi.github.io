@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronUp, ChevronDown, Music, Clock, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { useLastUpdated } from './LastUpdatedContext';
+import { ExternalLinkWrapper } from './ExternalLinkWrapper';
+
 
 export function PageInfoTray() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -162,7 +164,7 @@ export function PageInfoTray() {
 
       <div className="text-xs text-gray-500 dark:text-gray-400 text-center">
         {/* ♪ Für Elise - Ludwig van Beethoven */}
-        আমার মুক্তি আলোয় আলোয় – রবীন্দ্রনাথ ঠাকুর <br/> <a href="https://youtu.be/8CAYFaxaHx4" target="_blank">Piano by অরূপ পাল</a>
+        আমার মুক্তি আলোয় আলোয় – রবীন্দ্রনাথ ঠাকুর <br/> <ExternalLinkWrapper href="https://youtu.be/8CAYFaxaHx4" target="_blank">Piano by অরূপ পাল</<ExternalLinkWrapper>
       </div>
     </div>
   );

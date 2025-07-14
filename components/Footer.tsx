@@ -87,18 +87,16 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
-                <ExternalLinkWrapper
+               <motion.a
                   key={link.label}
                   href={link.href}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                   className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+                  aria-label={link.label}
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <link.icon className="w-5 h-5" />
-                  </motion.div>
-                </ExternalLinkWrapper>
+                  <link.icon className="w-5 h-5" />
+                </motion.a>
               ))}
             </div>
           </div>
