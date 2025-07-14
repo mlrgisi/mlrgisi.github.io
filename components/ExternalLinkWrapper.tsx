@@ -21,7 +21,7 @@ export function ExternalLinkWrapper({
   ...props 
 }: ExternalLinkWrapperProps) {
   const [showAlert, setShowAlert] = useState(false);
-  const [countdown, setCountdown] = useState(2);
+  const [countdown, setCountdown] = useState(4);
   const [isRedirecting, setIsRedirecting] = useState(false);
 
   // Define trusted domains that should not show the alert
@@ -29,8 +29,8 @@ export function ExternalLinkWrapper({
     'doi.org',
     'scholar.google.com',
     'github.io',
-    'web.isical.ac.in', // Your university domain
-    'www.isical.ac.in', // Your lab domain
+    'isical.ac.in', // Your university domain
+    'isical.ac.in', // Your lab domain
   ];
 
   // Check if the link is external and not in trusted domains
@@ -46,7 +46,8 @@ export function ExternalLinkWrapper({
       
       // Check if it's in trusted domains
       const isTrusted = trustedDomains.some(domain => 
-        link.hostname === domain || link.hostname.endsWith('.' + domain)
+        link.hostname === domain || link.hostname.endsWith('.' + domain) || link.protocol === "mailto:" ||  link.protocol === "tel:"
+
       );
       
       return !isTrusted;
