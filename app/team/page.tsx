@@ -43,6 +43,7 @@ interface TeamMember {
   name: string;
   role: 'professor' | 'jrf' | 'srf' | 'alumni' | 'adjunct';
   title: string;
+  remark?: string;
   image?: any;
   researchAreas: string[];
   joiningDate: string;
@@ -75,6 +76,7 @@ const teamMembers: TeamMember[] = [
     name: 'Anish Chakrabarty',
     role: 'srf',
     title: 'SMU, PhD-Stat',
+    remark: "Thesis Submitted",
     image: Anish,
     researchAreas: ['Deep Learning', 'High-dimensional Statistics'],
     joiningDate: '2019-01-15',
@@ -88,6 +90,7 @@ const teamMembers: TeamMember[] = [
     name: 'Faizanuddin Ansari',
     role: 'srf',
     title: 'ECSU, PhD-CS',
+    remark: "Thesis Submitted",
     image: Faizan,
     researchAreas: ['Long Tailed Imbalance', 'Meta Learning', 'AI for Health', 'Fairness', 'LLM'],
     joiningDate: '2019-09-01',
@@ -104,6 +107,7 @@ const teamMembers: TeamMember[] = [
     name: 'Kushal Bose',
     role: 'srf',
     title: 'ECSU, PhD-CS',
+    remark: "Thesis Submitted",
     image: Kushal,
     researchAreas: ['Geometric Deep Learning','Non-Euclidean Spaces'],
     joiningDate: '2019-01-10',
@@ -473,6 +477,14 @@ export default function TeamPage() {
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
           {member.title}
         </p>
+
+        {member.remark && (
+          <div className="mb-4">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-yellow-100 to-orange-100 text-yellow-800 dark:from-yellow-900/30 dark:to-orange-900/30 dark:text-yellow-300 border border-yellow-200 dark:border-yellow-700/50">
+              ✨ {member.remark}
+            </span>
+          </div>
+        )}
 
         {member.bio && (
         <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
