@@ -6,7 +6,6 @@ import { Github, Twitter, Linkedin, Mail, MapPin, Map, Phone, ExternalLink, Libr
 import ISI from '../public/ISI.png';
 import MLRG from '../public/MLRG.png';
 import { getBuildInfo, formatBuildTime } from '@/lib/build-info';
-import { ExternalLinkWrapper } from './ExternalLinkWrapper';
 
 export function Footer() {
   const [buildInfo, setBuildInfo] = useState<{ buildTime: string; isDevelopment: boolean } | null>(null);
