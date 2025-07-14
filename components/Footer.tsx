@@ -1,11 +1,28 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Github, Twitter, Linkedin, Mail, MapPin, Map, Phone, ExternalLink, LibraryIcon } from 'lucide-react';
 import ISI from '../public/ISI.png';
 import MLRG from '../public/MLRG.png';
+import { getBuildInfo, formatBuildTime } from '@/lib/build-info';
 
 export function Footer() {
+  const [buildInfo, setBuildInfo] = useState<{ buildTime: string; isDevelopment: boolean } | null>(null);
+
+  useEffect(() => {
+    setBuildInfo(getBuildInfo());
+    
+    // In development mode, update the time every second
+    if (process.env.NODE_ENV === 'development') {
+      const interval = setInterval(() => {
+        setBuildInfo(getBuildInfo());
+      }, 1000);
+      
+      return () => clearInterval(interval);
+    }
+  }, []);
+
   const socialLinks = [
     { icon: LibraryIcon, href: 'https://scholar.google.co.in/citations?hl=en&user=L8XYpAwAAAAJ&view_op=list_works&sortby=pubdate', label: 'Google Scholar'},
     { icon: Github, href: 'https://github.com/mlrgisi', label: 'GitHub' },
@@ -164,14 +181,33 @@ export function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © 2020 – {new Date().getFullYear()} ML Research Lab. All rights reserved.<br/>
+              © 2020 – {new Date().getFullYear()} ML Research Group. All rights reserved.<br/>
               {/* Developed by, Sankha Subhra Mullick, on January 29, 2020. */}
               Developed on January 29, 2020.
             </div>
-            <div className="text-gray-400 text-sm">
+            {/* <div className="text-gray-400 text-sm">
               Last updated: {days[date.getDay()]}, {months[date.getMonth()]} {date.getDate()}, {date.getFullYear()}; {date.getHours()}:{date.getMinutes()} <br/>
               Updated by Lab Members
+            </div> */}
+            {/***************** New Attachment ***********************/}
+	    <div className="text-gray-400 text-sm text-center md:text-right">
+              {buildInfo ? (
+                buildInfo.isDevelopment ? (
+                  <div>
+                    <div className="text-green-400 font-medium">Development Mode</div>
+                    <div>{formatBuildTime(buildInfo.buildTime)}</div>
+                  </div>
+                ) : (
+                  <div>
+                    <div>Last built:</div>
+                    <div>{formatBuildTime(buildInfo.buildTime)}</div>
+                  </div>
+                )
+              ) : (
+                'Loading...'
+              )}
             </div>
+            {/***************** New Attachment ***********************/}
           </div>
         </div>
       </div>
