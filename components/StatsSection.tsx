@@ -18,7 +18,7 @@ const stats = [
   },
   {
     icon: Calendar,
-    value: '12',
+    value: '14',
     label: 'Years Active',
     color: 'text-orange-500',
   },
