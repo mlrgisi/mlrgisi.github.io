@@ -140,7 +140,7 @@ const teamMembers: TeamMember[] = [
     image: Priyo,
     researchAreas: ['Imbalance', 'LongTailed Imbalance', 'Data Irregularity',  'Generative Modeling'],
     joiningDate: '2020-01-10',
-    paperCount: 2,
+    paperCount: 3,
     scholar: 'https://scholar.google.com/citations?hl=en&user=6SgZZG4AAAAJ&view_op=list_works&sortby=pubdate',
     email: 'priyobrata.mondal10@gmail.com?subject=[FromMLRGSite]',
     bio: 'Loading...',
