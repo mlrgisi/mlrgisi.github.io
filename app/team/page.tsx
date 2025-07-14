@@ -9,6 +9,7 @@ import Faizan from '../../public/faizan.png';
 import Kushal from '../../public/kushal.png';
 import Priyo from '../../public/priyobrata.png';
 import Arghya from '../../public/arghya.png';
+import Debanajan from '../../public/debanjan.png';
 import Bhaskar from '../../public/bhaskar.png';
 import Aniruddha from '../../public/aniruddha.png';
 import Blank from '../../public/blank.jpeg';
@@ -193,6 +194,7 @@ const teamMembers: TeamMember[] = [
     id: '11',
     name: 'Debanjan Dutta',
     role: 'jrf',
+    image: Debanjan,
     title: 'ECSU, PhD-CS',
     researchAreas: ['Language Models', 'Formal Languages', 'Expressiveness'],
     joiningDate: '2023-01-10',
