@@ -428,7 +428,7 @@ export default function TeamPage() {
   const { setLastUpdated } = useLastUpdated();
   
   useEffect(() => {
-    setLastUpdated('2025-06-22');
+    setLastUpdated('2025-07-14');
   }, [setLastUpdated]);
   const professor = teamMembers.find(member => member.role === 'professor');
   const currentMembers = teamMembers.filter(member => ['jrf', 'srf'].includes(member.role));
