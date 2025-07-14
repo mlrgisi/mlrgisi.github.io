@@ -121,7 +121,7 @@ export function ExternalLinkWrapper({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-md mx-4"
+              className="fixed inset-0 flex items-center justify-center p-4 z-50 w-full max-w-md mx-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl border border-gray-200 dark:border-gray-700">
