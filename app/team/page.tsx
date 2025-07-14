@@ -526,7 +526,7 @@ export default function TeamPage() {
             <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
               <div className="flex items-center justify-center mb-1">
                 <Calendar className="w-4 h-4 text-green-500 mr-1" />
-                <span className="text-sm font-bold text-gray-800 dark:text-gray-200">
+                <span className="text-xl font-bold text-gray-800 dark:text-gray-200">
                   {new Date(member.joiningDate).getFullYear()}
                 </span>
               </div>
@@ -537,7 +537,7 @@ export default function TeamPage() {
             <div className="col-span-2 text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
               <div className="flex items-center justify-center mb-1">
                 <Calendar className="w-4 h-4 text-green-500 mr-1" />
-                <span className="text-sm font-bold text-gray-800 dark:text-gray-200">
+                <span className="text-xl font-bold text-gray-800 dark:text-gray-200">
                   {new Date(member.joiningDate).getFullYear()}
                 </span>
               </div>
@@ -548,7 +548,7 @@ export default function TeamPage() {
             <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
               <div className="flex items-center justify-center mb-1">
                 <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
-                <span className="text-sm font-bold text-gray-800 dark:text-gray-200">
+                <span className="text-xl font-bold text-gray-800 dark:text-gray-200">
                   {member.citations}<sup>+</sup>
                 </span>
               </div>
