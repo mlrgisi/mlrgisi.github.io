@@ -99,16 +99,6 @@ export function Footer() {
                     <link.icon className="w-5 h-5" />
                   </motion.div>
                 </ExternalLinkWrapper>
-                {/* <motion.a
-                  key={link.label}
-                  href={link.href}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
-                  aria-label={link.label}
-                >
-                  <link.icon className="w-5 h-5" />
-                </motion.a> */}
               ))}
             </div>
           </div>
