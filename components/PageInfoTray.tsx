@@ -164,7 +164,7 @@ export function PageInfoTray() {
 
       <div className="text-xs text-gray-500 dark:text-gray-400 text-center">
         {/* ♪ Für Elise - Ludwig van Beethoven */}
-        আমার মুক্তি আলোয় আলোয় – রবীন্দ্রনাথ ঠাকুর <br/> <ExternalLinkWrapper href="https://youtu.be/8CAYFaxaHx4" target="_blank">Piano by অরূপ পাল</<ExternalLinkWrapper>
+        আমার মুক্তি আলোয় আলোয় – রবীন্দ্রনাথ ঠাকুর <br/> <ExternalLinkWrapper href="https://youtu.be/8CAYFaxaHx4" target="_blank">Piano by অরূপ পাল</ExternalLinkWrapper>
       </div>
     </div>
   );
