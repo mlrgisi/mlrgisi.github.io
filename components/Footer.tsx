@@ -199,8 +199,10 @@ export function Footer() {
                   </div>
                 ) : (
                   <div>
-                    <div>Last built:</div>
-                    <div>{formatBuildTime(buildInfo.buildTime)}</div>
+                    <div>Last built: {formatBuildTime(buildInfo.buildTime)}
+                     <br/>
+                     Updated by Lab Members
+                    </div>
                   </div>
                 )
               ) : (
