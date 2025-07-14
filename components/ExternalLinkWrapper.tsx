@@ -60,7 +60,7 @@ export function ExternalLinkWrapper({
     if (isExternalLink(href)) {
       e.preventDefault();
       setShowAlert(true);
-      setCountdown(2);
+      setCountdown(4);
     }
     // If it's internal or trusted, let the default behavior happen
   };
