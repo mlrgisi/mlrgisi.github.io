@@ -3,7 +3,7 @@
 
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Calendar, BookOpen, Award, Mail, Linkedin, Github, LibraryIcon } from 'lucide-react';
+import { ExternalLink, Calendar, BookOpen, Award, Mail, Linkedin, Github, LibraryIcon, TrendingUp } from 'lucide-react';
 import Anish from '../../public/anish.png';
 import Faizan from '../../public/faizan.png';
 import Kushal from '../../public/kushal.png';
@@ -21,7 +21,7 @@ import Avisek from '../../public/Avisek.png';
 import Shounak from '../../public/shounak.png';
 import Abhishek from '../../public/abhishek.png';
 import Sankha from '../../public/sankha.png';
-import Swagatam from '../../public/swagatam.png';
+import Swagatam from '../../public/swagatam.jpg';
 import Arka from '../../public/Arka.jpeg';
 import Shinjon from '../../public/shinjon.jpeg';
 import Sandipan from '../../public/sandipan.png';
@@ -49,6 +49,7 @@ interface TeamMember {
   researchAreas: string[];
   joiningDate: string;
   paperCount?: number;
+  citations?: string;
   website?: string;
   email?: string;
   linkedin?: string;
@@ -67,6 +68,7 @@ const teamMembers: TeamMember[] = [
     researchAreas: ['Artificial Intelligence', 'Metaheuristics', 'Differential Evolution', 'Swarm Intelligence', 'Machine Learning'],
     joiningDate: '2011-08-01',
     paperCount: 604,
+    citations: '35k',
     website: 'http://www.isical.ac.in/~swagatam.das/',
     email: 'swagatam.das@isical.ac.in',
     scholar: 'https://scholar.google.co.in/citations?hl=en&user=L8XYpAwAAAAJ&view_op=list_works&sortby=pubdate',
@@ -350,7 +352,7 @@ const teamMembers: TeamMember[] = [
     paperCount: 20,
     website: 'https://www.arkajyotisaha.com/',
     email: 'arkajyos@uci.edu?subject=[FromMLRGSite]',
-    bio: 'Joined as undergrad Student.'
+    bio: 'Joined as UnderGrad Student.'
   },
   {
     id: '23',
@@ -365,7 +367,7 @@ const teamMembers: TeamMember[] = [
     github: 'https://github.com/saptarshic27',
     scholar: 'https://scholar.google.com/citations?hl=en&user=BAH6owQAAAAJ&view_op=list_works&sortby=pubdate',
     email: 'saptarshic@berkeley.edu?subject=[FromMLRGSite]',
-    bio: 'Joined as undergrad Student.'
+    bio: 'Joined as UnderGrad Student.'
   },
   {
     id: '24',
@@ -377,7 +379,7 @@ const teamMembers: TeamMember[] = [
     joiningDate: '2020-03-01',
     paperCount: 17,
     scholar: 'https://scholar.google.co.in/citations?hl=en&user=TDakv1QAAAAJ&view_op=list_works&sortby=pubdate',
-    bio: 'Joined as Undergrad Student.'
+    bio: 'Joined as UnderGrad Student.'
   },
   {
     id: '25',
@@ -407,7 +409,7 @@ const teamMembers: TeamMember[] = [
     github: 'https://github.com/SayantanKumar',
     linkedin: 'https://www.linkedin.com/in/sayantan-kumar-14550812a',
     scholar: 'https://scholar.google.com/citations?hl=en&user=ytMVdOMAAAAJ&view_op=list_works&sortby=pubdate',
-    bio: 'Joined as Undergrad Student.'
+    bio: 'Joined as UnderGrad Student.'
   },
   {
     id: '27',
@@ -422,7 +424,7 @@ const teamMembers: TeamMember[] = [
     scholar: 'https://scholar.google.co.in/citations?hl=en&user=dOR684AAAAAJ&view_op=list_works&sortby=pubdate',
     website: 'https://deustotech.deusto.es/en/member/ghosh-arka/',
     linkedin: 'https://www.linkedin.com/in/sayantan-kumar-14550812a',
-    bio: 'Joined as Undergrad Student.'
+    bio: 'Joined as UnderGrad Student.'
   },
 ];
 
@@ -430,7 +432,7 @@ export default function TeamPage() {
   const { setLastUpdated } = useLastUpdated();
   
   useEffect(() => {
-    setLastUpdated('2025-07-14');
+    setLastUpdated('2025-07-15');
   }, [setLastUpdated]);
   const professor = teamMembers.find(member => member.role === 'professor');
   const currentMembers = teamMembers.filter(member => ['jrf', 'srf'].includes(member.role));
@@ -507,7 +509,7 @@ export default function TeamPage() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 gap-4 mb-6 w-full place-items-center">
+        <div className="grid grid-cols-3 gap-4 mb-6 w-full place-items-center">
         {/* <div className="flex gap-4 mb-6"> */}
           {member.paperCount && (
             <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
@@ -540,6 +542,17 @@ export default function TeamPage() {
                 </span>
               </div>
               <span className="text-sm text-gray-600 dark:text-gray-400">Joined</span>
+            </div>
+          )}
+          {member.citations && (
+            <div className="col-span-2 text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div className="flex items-center justify-center mb-1">
+                <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
+                <span className="text-sm font-bold text-gray-800 dark:text-gray-200">
+                  {member.citations}<sup>+</sup>
+                </span>
+              </div>
+              <span className="text-sm text-gray-600 dark:text-gray-400">Citations</span>
             </div>
           )}
         </div>

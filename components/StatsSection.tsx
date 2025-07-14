@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Users, BookOpen, Award, Calendar, School2 } from 'lucide-react';
+import { Users, BookOpen, Award, Calendar, School2, Sigma } from 'lucide-react';
 
 const stats = [
   {
@@ -23,9 +23,9 @@ const stats = [
     color: 'text-orange-500',
   },
   {
-    icon: School2,
-    value: '11+',
-    label: 'Grad Students',
+    icon: Sigma,
+    value: '90+',
+    label: 'H-Index',
     color: 'text-green-500',
   },
 ];
