@@ -278,7 +278,7 @@ export default function TeamPage() {
                 
                 {!memberState?.hasClickedFetch && member.dblpName && (
                   <div className="text-xs text-blue-500 cursor-pointer" onClick={() => handlePaperCountClick(member)}>
-                    Click to fetch count
+                    Click to fetch count from DBLP
                   </div>
                 )}
                 
