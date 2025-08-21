@@ -17,6 +17,19 @@ import {
   Cpu
 } from 'lucide-react';
 
+interface Neuron {
+  id: number;
+  x: number;
+  y: number;
+  active: boolean;
+};
+
+interface Connection {
+  from: number;
+  to: number;
+  strength: number;
+};
+
 export default function DemoPage() {
   const [activeDemo, setActiveDemo] = useState<string>('neural-network');
   const [isAnimating, setIsAnimating] = useState(true);
@@ -30,8 +43,8 @@ export default function DemoPage() {
 
   // Initialize neural network
   useEffect(() => {
-    const newNeurons = [];
-    const newConnections = [];
+    const newNeurons: Neuron[] = [];
+    const newConnections: Connection[] = [];
     
     // Create layers
     const layers = [4, 6, 6, 3]; // Input, Hidden1, Hidden2, Output
