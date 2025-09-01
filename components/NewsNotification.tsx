@@ -1,54 +1,10 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calendar, ExternalLink } from 'lucide-react';
+import { X, Calendar, ExternalLink, List } from 'lucide-react';
+import Link from 'next/link';
+import { newsItems, NewsItem } from '@/lib/news-data';
 
-interface NewsItem {
-  id: string;
-  title: string;
-  date: string;
-  type: 'publication' | 'award' | 'event' | 'announcement';
-  content: string;
-  link?: string;
-}
-
-const newsItems: NewsItem[] = [
-  {
-    id: '5',
-    title: 'Pre-PhD Seminars',
-    date: '2025-06-20',
-    type: 'announcement',
-    content: 'We congratulate our SRFs Mr. Anish, Mr. Faizan, and Mr. Kushal for presenting their thoughtful works in the Pre-PhD Seminars.',
-  },
-  {
-    id: '4',
-    title: 'Recent Publications',
-    date: '2025-06-10',
-    type: 'publication',
-    content: 'Works led by Anish, Faizanuddin, and Kushal have been published in StatComp, EAAI, and TNNLS  respectively.',
-  },
-  {
-    id: '3',
-    title: 'Mrs Susmita Ghosh has sucessfully defended her PhD thesis',
-    date: '2025-05-16',
-    type: 'award',
-    content: 'We are congratulate Mrs Susmita Ghosh on the successful defence of her doctoral research.'
-  },
-  {
-    id: '2',
-    type: 'announcement',
-    title: 'New Research Members Join',
-    date: '2025-06-15',
-    content: 'We welcome two talented PhD students to our research group this semester.',
-  },
-  {
-    id: '1',
-    type: 'announcement',
-    title: 'India AI',
-    date: '2025-03-10',
-    content: 'Mr. Shivam Jhangid (MTech) has received fellowship from India AI Mission under the supervision of Prof. Das.',
-  }
-];
 
 interface NewsNotificationProps {
   isOpen: boolean;
@@ -56,6 +12,9 @@ interface NewsNotificationProps {
 }
 
 export function NewsNotification({ isOpen, onClose }: NewsNotificationProps) {
+  // Show only first 7 news items
+  const displayNews = newsItems.slice(0, 7);
+
   const getTypeColor = (type: NewsItem['type']) => {
     switch (type) {
       case 'publication': return 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300';
@@ -90,18 +49,31 @@ export function NewsNotification({ isOpen, onClose }: NewsNotificationProps) {
             <div className="citation-popup rounded-2xl p-6 max-h-[80vh] overflow-y-auto">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
-                  Latest News
+                  Recent News
                 </h3>
-                <button
-                  onClick={onClose}
-                  className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+                <div className="flex items-center space-x-2">
+                  <Link href="/news">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={onClose}
+                      className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                      title="View all news"
+                    >
+                      <List className="w-5 h-5 text-blue-500" />
+                    </motion.button>
+                  </Link>
+                  <button
+                    onClick={onClose}
+                    className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
 
               <div className="space-y-4">
-                {newsItems.map((item, index) => (
+                {displayNews.map((item, index) => (
                   <motion.div
                     key={item.id}
                     initial={{ opacity: 0, y: 20 }}
@@ -127,19 +99,29 @@ export function NewsNotification({ isOpen, onClose }: NewsNotificationProps) {
                       {item.content}
                     </p>
 
-                    {item.link && (
-                      <motion.a
-                      href={item.link}
-                      target='_blank'
-                      >
+                    {/* <Link href={`/news/${item.id}`}>
                       <button className="flex items-center text-sm text-blue-500 hover:text-blue-600 transition-colors">
                         <span>Read more</span>
                         <ExternalLink className="w-3 h-3 ml-1" />
                       </button>
-                      </motion.a>
-                    )}
+                    </Link> */}
                   </motion.div>
                 ))}
+              </div>
+              
+              {/* View All News Footer */}
+              <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <Link href="/news">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={onClose}
+                    className="w-full px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center space-x-2"
+                  >
+                    <List className="w-4 h-4" />
+                    <span>View All News</span>
+                  </motion.button>
+                </Link>
               </div>
             </div>
           </motion.div>
