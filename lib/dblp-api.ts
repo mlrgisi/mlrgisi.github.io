@@ -101,7 +101,7 @@ export async function fetchDblpCounts(authorQuery: string): Promise<DblpCounts> 
         }
         reject(new Error('DBLP API request timeout'));
       }
-    }, 10000); // 10 second timeout
+    }, 20000); // 20 second timeout
 
     // Add script to head to trigger the request
     document.head.appendChild(script);

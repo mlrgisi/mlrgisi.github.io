@@ -1,21 +1,27 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Zap, TrendingUp, ArrowRight, Sparkles } from 'lucide-react';
 import { HeroSection } from '@/components/HeroSection';
 import { ResearchAreas } from '@/components/ResearchAreas';
+import { RecentNewsSection } from '@/components/RecentNewsSection';
 import { NewsCard } from '@/components/NewsCard';
 import { StatsSection } from '@/components/StatsSection';
 import { FeaturedPublications } from '@/components/FeaturedPublications';
 import { useLastUpdated } from '@/components/LastUpdatedContext';
+import { NewsNotification } from '@/components/NewsNotification';
 import Link from 'next/link';
 
 export default function Home() {
   const { setLastUpdated } = useLastUpdated();
-
+  const [showNews, setShowNews] = useState(false);
+  
+  const handleBellClick = () => {
+    setShowNews(true);
+  };
   useEffect(() => {
-    setLastUpdated('2025-06-15');
+    setLastUpdated('2025-09-01');
   }, [setLastUpdated]);
 
   return (
@@ -31,6 +37,9 @@ export default function Home() {
       
       {/* Stats Section */}
       <StatsSection />
+
+      {/* Recent News Section */}
+      <RecentNewsSection onBellClick={handleBellClick} />
       
       {/* Featured Publications */}
       <FeaturedPublications />
@@ -74,6 +83,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+       {/* News Notification */}
+      <NewsNotification isOpen={showNews} onClose={() => setShowNews(false)} />
     </div>
   );
 }
