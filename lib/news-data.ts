@@ -81,7 +81,7 @@ export const newsItems: NewsItem[] = [
     date: '2025-05-16',
     uploadDate:'2025-05-16',
     type: 'award',
-    content: 'We are congratulate Mrs Susmita Ghosh on the successful defence of her doctoral research.',
+    content: 'We congratulate Mrs Susmita Ghosh on the successful defence of her doctoral research.',
   },
   {
     id: '2',
