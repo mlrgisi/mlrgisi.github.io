@@ -67,14 +67,13 @@ export function RecentNewsSection({ onBellClick }: RecentNewsSectionProps) {
 
         <div className="max-w-4xl mx-auto">
           {/* Featured Latest News */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="research-card p-8 rounded-2xl mb-8"
           >
             <div className="flex flex-col lg:flex-row gap-6">
-              {/* Image */}
               {latestNews.images && latestNews.images.length > 0 && (
                 <div className="lg:w-1/3">
                   <img
@@ -85,7 +84,6 @@ export function RecentNewsSection({ onBellClick }: RecentNewsSectionProps) {
                 </div>
               )}
 
-              {/* Content */}
               <div className={latestNews.images && latestNews.images.length > 0 ? 'lg:w-2/3' : 'w-full'}>
                 <div className="flex flex-wrap items-center gap-2 mb-4">
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${getTypeColor(latestNews.type)}`}>
@@ -110,15 +108,7 @@ export function RecentNewsSection({ onBellClick }: RecentNewsSectionProps) {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={onBellClick}
-                    className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center space-x-2"
-                  >
-                    <Bell className="w-4 h-4" />
-                    <span>View All Recent News</span>
-                  </motion.button>
+                  
 
                   <Link href={`/news/${latestNews.id}`}>
                     <motion.button
@@ -133,10 +123,10 @@ export function RecentNewsSection({ onBellClick }: RecentNewsSectionProps) {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Other Recent News */}
-          {recentNews.length > 1 && (
+          {/* {recentNews.length > 1 && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {recentNews.slice(1, 3).map((item, index) => (
                 <motion.div
@@ -173,7 +163,7 @@ export function RecentNewsSection({ onBellClick }: RecentNewsSectionProps) {
                 </motion.div>
               ))}
             </div>
-          )}
+          )} */}
 
           {/* View All News Link */}
           <motion.div
@@ -182,16 +172,17 @@ export function RecentNewsSection({ onBellClick }: RecentNewsSectionProps) {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center mt-8"
           >
-            <Link href="/news">
+            {/* <Link href="/news"> */}
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-blue-500 text-blue-500 rounded-lg font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all flex items-center space-x-2 mx-auto"
+                onClick={onBellClick}
+                className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center space-x-2"
               >
-                <span>View All News</span>
-                <ExternalLink className="w-4 h-4" />
+                <Bell className="w-4 h-4" />
+                <span>View All Recent News</span>
               </motion.button>
-            </Link>
+            {/* </Link> */}
           </motion.div>
         </div>
       </div>

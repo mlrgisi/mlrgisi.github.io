@@ -51,7 +51,7 @@ export const newsItems: NewsItem[] = [
     date: '2025-07-30',
     uploadDate: '2025-08-31',
     type: 'announcement',
-    content: 'We congratulate Soham Chakroborty (MTech, ISI) for being selected as Erricson Fellow.',
+    content: 'We congratulate Soham Chakraborty (MTech, ISI) for being selected as Erricson Fellow.',
     images: [
       {
         url: Erricson,

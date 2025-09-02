@@ -419,7 +419,7 @@ export const teamMembers: TeamMember[] = [
     id: '24',
     name: 'Debolina Paul',
     role: 'alumni',
-    title: 'CKUENS Analytics',
+    title: 'DPhil @ LMH, University of oxford',
     image: Debolina,
     researchAreas: ['Machine Learning', 'Deep Learning', 'Learning Theory', 'Optimization', 'Optimal Transport'],
     joiningDate: '2020-03-01',
