@@ -61,7 +61,7 @@ export function RecentNewsSection({ onBellClick }: RecentNewsSectionProps) {
             </h2>
           </div>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            Latest updates from our research lab
+            Catch up on the latest highlights from the last 30 days.
           </p>
         </motion.div>
 
@@ -172,6 +172,7 @@ export function RecentNewsSection({ onBellClick }: RecentNewsSectionProps) {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center mt-8"
           >
+            <div className="flex flex-col lg:flex-row gap-6"></div>
             {/* <Link href="/news"> */}
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -183,6 +184,7 @@ export function RecentNewsSection({ onBellClick }: RecentNewsSectionProps) {
                 <span>View All Recent News</span>
               </motion.button>
             {/* </Link> */}
+            </div>
           </motion.div>
         </div>
       </div>
