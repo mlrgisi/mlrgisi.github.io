@@ -47,7 +47,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: '6',
-    title: 'Erricson Fellow',
+    title: 'Ericsson Fellow',
     date: '2025-07-30',
     uploadDate: '2025-08-31',
     type: 'announcement',
