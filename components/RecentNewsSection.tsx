@@ -172,7 +172,7 @@ export function RecentNewsSection({ onBellClick }: RecentNewsSectionProps) {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center mt-8"
           >
-            <div className="flex flex-col lg:flex-row gap-6"></div>
+            <div className="flex flex-col lg:flex-row gap-6">
             {/* <Link href="/news"> */}
               <motion.button
                 whileHover={{ scale: 1.05 }}
