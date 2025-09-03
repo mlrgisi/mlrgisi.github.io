@@ -33,12 +33,13 @@ const internalList = ['Das, Swagatam', 'Swagatam Das', 'Das, S.',
 const alumniList   = ['Ghosh, Susmita', 'Susmita Ghosh', 'Ghosh, S.',
                       'Gupta, Avisek', 'Avisek Gupta', 'Gupta, A.',
                       'Basu, Arkaprabha', 'Arkaprabha Basu', 'Basu, A.',
-                      'Chowdhury, Anal Roy', 'Anal Roy Chowdhury', 'Chowdhury, A. R.',
-                      'Mullick, Sankha Subhra', 'Sankha Subhra Mullick', 'Mullick, S. S.',
+                      'Chowdhury, Anal Roy', 'Roy Chowdhury, Anal', 'Anal Roy Chowdhury', 'Chowdhury, A. R.',
+                      'Mullick, Sankha Subhra', 'Subhra Mullick, Sankha', 'Sankha Subhra Mullick', 'Mullick, S. S.',
                       'Dhar, Sandipan', 'Sandipan Dhar', 'Dhar, S.',
                       'Datta, Shounak', 'Shounak Datta', 'Datta, S.',
                       'Chowdhury, Anal Roy', 'Anal Roy Chowdhury', 'Chowdhury A. R.',
                       'Basu, Arkaprabha', 'Arkaprabha Basu', 'Basu, A.',
+                      'Paul, Debolina', 'Debolina Paul', 'Paul, D.',
                      ];
 
 interface Publication {
@@ -125,7 +126,7 @@ export default function ClientComponent({ fileData }: { fileData: any[] }) {
     const { setLastUpdated } = useLastUpdated();
   
     useEffect(() => {
-      setLastUpdated('2025-06-17');
+      setLastUpdated('2025-08-31');
     }, [setLastUpdated]);
     // const publications: Array<Record<string, any>> = JSON.parse(fileData);
     const publicationsjson = fileData;
