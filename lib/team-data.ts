@@ -381,7 +381,7 @@ export const teamMembers: TeamMember[] = [
     scholar: 'https://scholar.google.com/citations?hl=en&user=7S_jA3IAAAAJ&view_op=list_works&sortby=pubdate',
     website: 'https://thecoder1012.github.io/',
     github: 'https://github.com/Thecoder1012',
-    bio: 'Joined as PLP'
+    bio: 'Joined as PLP.'
   },
   {
     id: '22',
@@ -419,7 +419,7 @@ export const teamMembers: TeamMember[] = [
     id: '24',
     name: 'Debolina Paul',
     role: 'alumni',
-    title: 'DPhil @ LMH, University of oxford',
+    title: 'DPhil @ LMH, University of Oxford',
     image: Debolina,
     researchAreas: ['Machine Learning', 'Deep Learning', 'Learning Theory', 'Optimization', 'Optimal Transport'],
     joiningDate: '2020-03-01',
