@@ -4,7 +4,7 @@ import {BibtexParser} from "bibtex-js-parser";
 import ClientComponent from './ClientComponent';
 
 export default function Page() {
-  const filePath = path.join(process.cwd(), 'public', 'publications.bib');
+  const filePath = path.join(process.cwd(), 'lib', 'publications.bib');
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const bibJSON = BibtexParser.parseToJSON(fileContent);
   // const publications = BibtexParser.parseToJSONString(fileContent);
