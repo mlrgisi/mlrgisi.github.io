@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, CalendarCheck2, Tag, Clock, ChevronDown } from 'lucide-react';
+import { Calendar, CalendarClock, Tag, Clock, ChevronDown, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useLastUpdated } from '@/components/LastUpdatedContext';
 import { getAllNewsItems, NewsItem } from '@/lib/news-data';
@@ -77,10 +77,12 @@ export default function NewsPage() {
             </span>
           ))}
         </div>
-
-        <h2 className="text-2xl font-bold mb-3 text-gray-800 dark:text-gray-200 group-hover:text-blue-500 transition-colors">
-          {item.title}
-        </h2>
+        
+        <Link href={`/news/${new Date(item.uploadDate).getFullYear()}/${item.id}`}>
+          <h2 className="text-2xl font-bold mb-3 text-gray-800 dark:text-gray-200 group-hover:text-blue-500 transition-colors">
+            {item.title}
+          </h2>
+        </Link>
 
         <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
           {item.content}
@@ -97,17 +99,17 @@ export default function NewsPage() {
               })}</span>
             </div>
             <div className="flex items-center space-x-1">
-              <CalendarCheck2 className="w-4 h-4" />
+              <CalendarClock className="w-4 h-4" />
               <span>{new Date(item.uploadDate).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
+                year: '2-digit',
+                month: 'short',
                 day: 'numeric'
               })}</span>
             </div>
           </div>
         </div>
 
-        {/* <Link href={`/news/${item.id}`}>
+        <Link href={`/news/${new Date(item.uploadDate).getFullYear()}/${item.id}`}>
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -116,7 +118,7 @@ export default function NewsPage() {
             <span>Read Full Story</span>
             <ArrowRight className="w-4 h-4" />
           </motion.button>
-        </Link> */}
+        </Link>
       </div>
     </motion.article>
   );

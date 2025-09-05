@@ -1,7 +1,3 @@
-import IJCAI1 from '../public/news/2025/IJCAI1.jpg';
-import IJCAI2 from '../public/news/2025/IJCAI2.jpg';
-import IJCAI3 from '../public/news/2025/IJCAI3.jpg';
-import IJCAI4 from '../public/news/2025/IJCAI4.jpg';
 import Erricson from '../public/news/2025/Ericsson.png';
 
 export interface NewsItem {
@@ -27,19 +23,19 @@ export const newsItems: NewsItem[] = [
     content: 'PI Dr. Swagatam Das presenting the joint work to IJCAI.',
     images: [
       {
-        url: IJCAI1,
+        url: '/news/2025/IJCAI1.jpg',
         caption: 'Prof. Das at IJCAI 2025 (Guangzhou, China).'
       },
       {
-        url: IJCAI2,
+        url: '/news/2025/IJCAI2.jpg',
         caption: 'Work on Dias.'
       },
       {
-        url: IJCAI3,
+        url: '/news/2025/IJCAI3.jpg',
         caption: 'Co-authors: Supratik, Jyotishka, Debolina.'
       },
       {
-        url: IJCAI4,
+        url: '/news/2025/IJCAI4.jpg',
         caption: ''
       }
     ],
@@ -54,7 +50,7 @@ export const newsItems: NewsItem[] = [
     content: 'We congratulate Soham Chakraborty (MTech, ISI) for being selected as Erricson Fellow.',
     images: [
       {
-        url: Erricson,
+        url: '/news/2025/Ericsson.png',
         caption: ''
       }
     ],
@@ -64,7 +60,7 @@ export const newsItems: NewsItem[] = [
     title: 'Pre-PhD Seminars',
     date: '2025-06-20',
     uploadDate: '2025-06-20',
-    type: 'announcement',
+    type: 'event',
     content: 'We congratulate our SRFs Mr. Anish, Mr. Faizan, and Mr. Kushal for presenting their thoughtful works in the Pre-PhD Seminars.',
   },
   {

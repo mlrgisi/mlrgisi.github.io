@@ -74,6 +74,7 @@ export function NewsNotification({ isOpen, onClose }: NewsNotificationProps) {
 
               <div className="space-y-4">
                 {displayNews.map((item, index) => (
+                  <Link href={`/news/${new Date(item.uploadDate).getFullYear()}/${item.id}`}>
                   <motion.div
                     key={item.id}
                     initial={{ opacity: 0, y: 20 }}
@@ -106,6 +107,7 @@ export function NewsNotification({ isOpen, onClose }: NewsNotificationProps) {
                       </button>
                     </Link> */}
                   </motion.div>
+                  </Link>
                 ))}
               </div>
               

@@ -58,7 +58,7 @@ export function ImageCarousel({ images, autoPlay = true, interval = 4000 }: Imag
           className="relative w-full h-full"
         >
           <img
-            src={images[currentIndex].url.src}
+            src={images[currentIndex].url}
             alt={images[currentIndex].caption}
             className="w-full h-full object-cover"
           />
