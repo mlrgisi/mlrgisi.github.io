@@ -44,9 +44,9 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: 'Email',
-      details: ['swagatam.das@isical.ac.in', 'swagatamdas19@yahoo.co.in'],
+      details: ['mlrgisical@gmail.com', 'swagatam.das@isical.ac.in', 'swagatamdas19@yahoo.co.in'],
       color: 'text-purple-500',
-      link:'mailto:swagatam.das@isical.ac.in?cc=swagatamdas19@yahoo.co.in&subject=[FromMLRGSite]'
+      link:'mailto:mlrgisical@gmail.com?cc=swagatam.das@isical.ac.in&subject=[FromMLRGSite]'
     },
     {
       icon: Clock,
