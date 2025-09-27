@@ -28,7 +28,7 @@ export function Footer() {
     { icon: Github, href: 'https://github.com/mlrgisi', label: 'GitHub' },
     // { icon: Twitter, href: '#', label: 'Twitter' },
     // { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:swagatam.das@isical.ac.in?subject=[FromMLRGSiteFooter]', label: 'Email' },
+    { icon: Mail, href: 'mailto:mlrgisical@gmail.com?subject=[FromMLRGSiteFooter]&cc=swagatam.das@isical.ac.in', label: 'Email' },
     { icon: Phone, href: 'tel:+913325752915', label: 'Call' },
   ];
 
@@ -143,11 +143,11 @@ export function Footer() {
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-gray-400" />
                 <a
-                  href='mailto:swagatam.das@isical.ac.in?subject=[FromMLRGSiteFooter]'
+                  href='mailto:mlrgisical@gmail.com?subject=[FromMLRGSiteFooter]&cc=swagatam.das@isical.ac.in'
                   target='_blank'
                   className="text-gray-400 hover:text-white transition-colors flex items-center group"
                 >
-                <span className="text-gray-400">swagatam.das@isical.ac.in</span>
+                <span className="text-gray-400">mlrgisical@gmail.com</span>
               </a>
               </div>
             </div>
