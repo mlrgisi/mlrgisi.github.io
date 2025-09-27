@@ -44,7 +44,7 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: 'Email',
-      details: ['mlrgisical@gmail.com', 'swagatam.das@isical.ac.in', 'swagatamdas19@yahoo.co.in'],
+      details: ['mlrgisical@gmail.com', 'swagatam.das@isical.ac.in'],
       color: 'text-purple-500',
       link:'mailto:mlrgisical@gmail.com?cc=swagatam.das@isical.ac.in&subject=[FromMLRGSite]'
     },
