@@ -8,10 +8,11 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
-import { Calendar, ArrowLeft, Share2, Bookmark, Tag, Clock, CalendarClock } from 'lucide-react';
+import { Calendar, ArrowLeft, Share2, Bookmark, Tag, Clock, CalendarClock, Search } from 'lucide-react';
 import Link from 'next/link';
 import { ImageCarousel } from '@/components/ImageCarousel';
 import { NewsItem } from '@/lib/news-data';
+import React from 'react';
 
 const newsDirectory = path.join(process.cwd(), "news");
 
@@ -172,6 +173,50 @@ export default async function NewsPage(props: {
                       <code className={className} {...props}>
                         {children}
                       </code>
+                    );
+                  },
+                  a: ({ href, children, ...props }) => {
+                    // Convert children to plain text (handles nested nodes)
+                    const extractText = (childNodes : any) =>
+                      childNodes
+                        .map((child:any) =>
+                          typeof child === 'string'
+                            ? child
+                            : child?.props?.children
+                              ? extractText(Array.isArray(child.props.children) ? child.props.children : [child.props.children])
+                              : ''
+                        )
+                        .join('');
+
+                    const fullText = extractText(Array.isArray(children) ? children : [children]);
+                    const words = fullText.trim().split(' ');
+                    const lastWord = words.pop();
+                    const firstPart = words.join(' ');
+                    const chars = lastWord.split('');
+
+                    return (
+                      <a
+                        href={href}
+                        className="relative text-blue-500 hover:text-blue-600 underline decoration-dotted decoration-gray-400"
+                        {...props}
+                      >
+                        {firstPart && <span>{firstPart} </span>}
+                        <span>
+                        {chars.map((char : string, i: any) => (
+                          // Attach icon only after the last character
+                          <React.Fragment key={i}>
+                            <span>{char}</span>
+                            {i === chars.length - 1 && (
+                              <Search
+                                size={10}
+                                className="text-gray-500 align-super inline-block"
+                                aria-hidden="true"
+                              />
+                            )}
+                          </React.Fragment>
+                        ))}
+                      </span>
+                      </a>
                     );
                   },
                 }}
