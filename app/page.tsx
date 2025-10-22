@@ -11,6 +11,7 @@ import { StatsSection } from '@/components/StatsSection';
 import { FeaturedPublications } from '@/components/FeaturedPublications';
 import { useLastUpdated } from '@/components/LastUpdatedContext';
 import { NewsNotification } from '@/components/NewsNotification';
+import { ImportantMessageModal } from '@/components/FlashNews';
 import Link from 'next/link';
 
 export default function Home() {
@@ -28,6 +29,8 @@ export default function Home() {
     <div className="relative">
       {/* Background Effects */}
       <div className="fixed inset-0 neural-network-bg opacity-30 pointer-events-none" />
+
+      <ImportantMessageModal />
       
       {/* Hero Section */}
       <HeroSection />
