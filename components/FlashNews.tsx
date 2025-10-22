@@ -33,15 +33,16 @@ Where:
 
 export function ImportantMessageModal({
   title = "Important Announcement",
-  message = `# Welcome to Our Research Lab! 🎉
+  message = `# WSDL 2026 is Live! 🎉
 
-## Winter School Registration
-Don't forget to register for our **Winter School on Deep Learning** - limited seats available!
+Mark Your Calendars! [WSDL 2026](https://web.isical.ac.in/~wsdl) | Jan 16 – Mar 8, 2026
+
+Registration will begin soon.
 
 ---
 
 *This message will only appear once. Thank you for visiting our lab!*`,
-  closeButtonText = "Got it!",
+  closeButtonText = "Visit!",
   storageKey = "important-message-shown"
 }: ImportantMessageModalProps) {
   const [isVisible, setIsVisible] = useState(false);
@@ -64,6 +65,13 @@ Don't forget to register for our **Winter School on Deep Learning** - limited se
     setIsVisible(false);
     // Mark as shown in sessionStorage
     sessionStorage.setItem(storageKey, 'true');
+  };
+  
+  const visit = () => {
+    setIsVisible(false);
+    // Mark as shown in sessionStorage
+    sessionStorage.setItem(storageKey, 'true');
+    window.open('https://sites.google.com/view/wsdl2026', '_blank');
   };
 
   return (
@@ -158,7 +166,7 @@ Don't forget to register for our **Winter School on Deep Learning** - limited se
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={handleClose}
+                  onClick={visit}
                   className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all"
                 >
                   {closeButtonText}

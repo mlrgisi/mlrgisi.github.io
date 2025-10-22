@@ -102,7 +102,7 @@ export const teamMembers: TeamMember[] = [
     github: 'https://github.com/ziaf/',
     linkedin: 'https://in.linkedin.com/in/faizanuddinansari',
     scholar: 'https://orcid.org/0009-0009-5517-8846',
-    bio: "Most real-world datasets are far from ideal—they're imbalanced, biased, or simply too small to learn from effectively — and that's exactly where he comes in.",
+    bio: "Data Scientist @ Philips Healthcare.",
   },
   {
     id: '4',
