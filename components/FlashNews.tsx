@@ -71,7 +71,7 @@ Registration will begin soon.
     setIsVisible(false);
     // Mark as shown in sessionStorage
     sessionStorage.setItem(storageKey, 'true');
-    window.open('https://sites.google.com/view/wsdl2026', '_blank');
+    // window.open('https://sites.google.com/view/wsdl2026', '_blank');
   };
 
   return (
