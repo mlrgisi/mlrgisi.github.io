@@ -126,7 +126,7 @@ export default function ClientComponent({ fileData }: { fileData: any[] }) {
     const { setLastUpdated } = useLastUpdated();
   
     useEffect(() => {
-      setLastUpdated('2025-11-09');
+      setLastUpdated('2025-11-23');
     }, [setLastUpdated]);
     // const publications: Array<Record<string, any>> = JSON.parse(fileData);
     const publicationsjson = fileData;
