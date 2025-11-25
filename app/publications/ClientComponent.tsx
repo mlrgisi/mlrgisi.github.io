@@ -40,6 +40,7 @@ const alumniList   = ['Ghosh, Susmita', 'Susmita Ghosh', 'Ghosh, S.',
                       'Chowdhury, Anal Roy', 'Anal Roy Chowdhury', 'Chowdhury A. R.',
                       'Basu, Arkaprabha', 'Arkaprabha Basu', 'Basu, A.',
                       'Paul, Debolina', 'Debolina Paul', 'Paul, D.',
+                      'Chakraborty, Saptarshi', 'Saptarshi Chakraborty', 'Chakraborty, S.',
                      ];
 
 interface Publication {
