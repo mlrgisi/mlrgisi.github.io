@@ -30,7 +30,7 @@ export default function Home() {
       {/* Background Effects */}
       <div className="fixed inset-0 neural-network-bg opacity-30 pointer-events-none" />
 
-      <ImportantMessageModal />
+      {/*<ImportantMessageModal />*/}
       
       {/* Hero Section */}
       <HeroSection />
