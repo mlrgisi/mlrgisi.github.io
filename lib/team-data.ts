@@ -26,6 +26,7 @@ import Sayantan from '../public/sayantan.jpeg';
 import Srinjoy from '../public/srinjoy.jpg';
 import Anal from '../public/anal.jpeg';
 import Arkaprabha from '../public/arkaprabha.jpeg';
+import Subhajit from '../public/subhajit.jpg';
 import { CgProfile } from "react-icons/cg";
 
 
@@ -73,7 +74,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Anish Chakrabarty',
     role: 'srf',
     title: 'SMU, PhD-Stat',
-    remark: "Thesis Submitted",
+    remark: "Thesis Defended",
     image: Anish,
     researchAreas: ['Deep Learning', 'High-dimensional Statistics'],
     joiningDate: '2019-01-15',
@@ -88,21 +89,20 @@ export const teamMembers: TeamMember[] = [
   {
     id: '3',
     name: 'Faizanuddin Ansari',
-    role: 'srf',
-    title: 'ECSU, PhD-CS',
-    remark: "Thesis Submitted",
+    role: 'alumni',
+    title: 'Data & AI Scientist I @ Philips Healthcare',
+    remark: "Thesis Defended",
     image: Faizan,
     researchAreas: ['Long Tailed Imbalance', 'Meta Learning', 'AI for Health', 'Fairness', 'LLM'],
     joiningDate: '2019-09-01',
     paperCount: 7,
     dblpName: 'Faizanuddin_Ansari',
     biasCount: 2,
-    email: 'faizanuddin_r@isical.ac.in?subject=[FromMLRGSite]',
+    email: 'faizanansari541@gmail.com?subject=[FromMLRGSite]',
     website: 'https://web.isical.ac.in/~faizanuddin_r/',
     github: 'https://github.com/ziaf/',
     linkedin: 'https://in.linkedin.com/in/faizanuddinansari',
     scholar: 'https://orcid.org/0009-0009-5517-8846',
-    bio: "Data Scientist @ Philips Healthcare.",
   },
   {
     id: '4',
@@ -185,7 +185,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: '9',
     name: 'Aniruddha Mandal',
-    role: 'jrf',
+    role: 'srf',
     title: 'ECSU, PhD-CS',
     image: Aniruddha,
     researchAreas: ['Graph Neural Network'],
@@ -199,7 +199,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: '10',
     name: 'Bhaskar Pramanik',
-    role: 'jrf',
+    role: 'srf',
     title: 'ECSU, PhD-CS',
     image: Bhaskar,
     researchAreas: ['Graph Neural Network'],
@@ -213,7 +213,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: '11',
     name: 'Debanjan Dutta',
-    role: 'jrf',
+    role: 'srf',
     image: Debanjan,
     title: 'ECSU, PhD-CS',
     researchAreas: ['Language Models', 'Formal Languages', 'Expressiveness'],
@@ -226,9 +226,9 @@ export const teamMembers: TeamMember[] = [
     bio: 'Works on investigating the expressive power of Language Models from the lens of theoretical computer science.',
   },
   {
-    id: '12',
+    id: '28',
     name: 'Shinjon Chakraborty',
-    role: 'jrf',
+    role: 'adjunct',
     title: 'SMU, PhD-Stat',
     image: Shinjon,
     researchAreas: ['Causal Inference', 'Optimal Transport'],
@@ -237,6 +237,22 @@ export const teamMembers: TeamMember[] = [
     dblpName: 'Shinjon_Chakraborty',
     biasCount: 0,
     scholar: 'https://www.researchgate.net/profile/Shinjon_Chakraborty',
+    linkedin: 'https://in.linkedin.com/in/shinjon-chakraborty-a684b4209',
+    email: 'shinjonchakraborty07@gmail.com?subject=[FromMLRGSite]',
+    bio: 'Currently on the path of exploring Causal Inference and Statistical Learning theory. He is also an enthusiast in Theoretical Statistics, and Asymptotic Inference.',
+  },
+  {
+    id: '12',
+    name: 'Subhajit Saha',
+    role: 'srf',
+    title: 'ISI, TCG Crest',
+    image: Subhajit,
+    researchAreas: ['DL', 'RL'],
+    joiningDate: '2023-01-10',
+    paperCount: 6,
+    dblpName: 'Subhajit_Saha',
+    biasCount: 0,
+    scholar: 'https://scholar.google.com/citations?hl=en&user=P0S60L0AAAAJ&view_op=list_works&sortby=pubdate',
     linkedin: 'https://in.linkedin.com/in/shinjon-chakraborty-a684b4209',
     email: 'shinjonchakraborty07@gmail.com?subject=[FromMLRGSite]',
     bio: 'Currently on the path of exploring Causal Inference and Statistical Learning theory. He is also an enthusiast in Theoretical Statistics, and Asymptotic Inference.',

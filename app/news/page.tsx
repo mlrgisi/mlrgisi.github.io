@@ -13,7 +13,7 @@ export default function NewsPage() {
   const allNews = getAllNewsItems();
 
   useEffect(() => {
-    setLastUpdated('2025-09-01');
+    setLastUpdated('2026-02-09');
   }, [setLastUpdated]);
 
   // Group news by year
