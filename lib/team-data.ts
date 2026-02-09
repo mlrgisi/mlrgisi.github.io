@@ -71,9 +71,9 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: '2',
-    name: 'Anish Chakrabarty',
+    name: 'Dr. Anish Chakrabarty',
     role: 'srf',
-    title: 'SMU, PhD-Stat',
+    title: 'TSMU, PhD-Stat',
     remark: "Thesis Defended",
     image: Anish,
     researchAreas: ['Deep Learning', 'High-dimensional Statistics'],
@@ -83,12 +83,11 @@ export const teamMembers: TeamMember[] = [
     biasCount: 0,
     website: 'https://chakrabartyanish.faculty.bio/',
     scholar: 'https://scholar.google.com/citations?hl=en&user=KfCQY5oAAAAJ&view_op=list_works&sortby=pubdate',
-    email: 'chakrabarty.anish@gmail.com?subject=[FromMLRGSite]',
-    bio: 'Loading...',
+    email: 'chakrabarty.anish@gmail.com?subject=[FromMLRGSite]'
   },
   {
     id: '3',
-    name: 'Faizanuddin Ansari',
+    name: 'Dr. Faizanuddin Ansari',
     role: 'alumni',
     title: 'Data & AI Scientist I @ Philips Healthcare',
     remark: "Thesis Defended",
