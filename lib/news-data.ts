@@ -15,7 +15,53 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
-    id: '7',
+    id: '2',
+    title: 'Mr. Faizanuddin Ansari has sucessfully defended his PhD thesis.',
+    date: '2026-02-09',
+    uploadDate: '2026-02-09',
+    type: 'award',
+    content: 'Dr. Faizanuddin Ansari successfully defended his PhD thesis at ISI Kolkata and joins École Polytechnique & Paris Telecom as a postdoc!',
+    images: [
+      {
+        url: '/news/2026/PhDDefense1.jpg',
+        caption: 'A Journey from Mr. to Dr. (Dr. Faizanuddin Ansari).'
+      },
+      {
+        url: '/news/2026/PhDDefense3.jpg',
+        caption: 'A Journey from Mr. to Dr. (Dr. Faizanuddin Ansari).'
+      },
+      {
+        url: '/news/2026/PhDDefense5.jpg',
+        caption: 'A Journey from Mr. to Dr. (Dr. Faizanuddin Ansari).'
+      }
+    ],
+    tags: ['award']
+  },
+  {
+    id: '1',
+    title: 'Mr Anish Chakrabarty has sucessfully defended his PhD thesis.',
+    date: '2026-02-04',
+    uploadDate: '2026-02-09',
+    type: 'award',
+    content: 'Dr. Anish Chakraborty successfully defended his PhD thesis at ISI Kolkata and joins École Polytechnique & Paris Telecom as a postdoc!',
+    images: [
+      {
+        url: '/news/2026/PhDDefense1.jpg',
+        caption: 'A Journey from Mr. to Dr. (Dr. Anish Chakrabarty).'
+      },
+      {
+        url: '/news/2026/PhDDefense3.jpg',
+        caption: 'A Journey from Mr. to Dr. (Dr. Anish Chakrabarty).'
+      },
+      {
+        url: '/news/2026/PhDDefense5.jpg',
+        caption: 'A Journey from Mr. to Dr. (Dr. Anish Chakrabarty).'
+      }
+    ],
+    tags: ['award']
+  },
+  {
+    id: '8',
     title: 'IJCAI 2025',
     date: '2025-08-30',
     uploadDate: '2025-08-31',
@@ -38,8 +84,7 @@ export const newsItems: NewsItem[] = [
         url: '/news/2025/IJCAI4.jpg',
         caption: ''
       }
-    ],
-    tags: ['Publication']
+    ]
   },
   {
     id: '6',
