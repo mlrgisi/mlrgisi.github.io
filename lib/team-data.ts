@@ -254,8 +254,8 @@ export const teamMembers: TeamMember[] = [
     biasCount: 0,
     scholar: 'https://scholar.google.com/citations?hl=en&user=P0S60L0AAAAJ&view_op=list_works&sortby=pubdate',
     linkedin: 'https://in.linkedin.com/in/shinjon-chakraborty-a684b4209',
-    email: 'shinjonchakraborty07@gmail.com?subject=[FromMLRGSite]',
-    bio: 'Currently on the path of exploring Causal Inference and Statistical Learning theory. He is also an enthusiast in Theoretical Statistics, and Asymptotic Inference.',
+    email: 'subhajit.saha.131@tcgcrest.org?subject=[FromMLRGSite]',
+    bio: 'Loading...',
   },
   {
     id: '13',
