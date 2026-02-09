@@ -37,7 +37,7 @@ export default function TeamPage() {
   const [memberStates, setMemberStates] = useState<Record<string, TeamMemberState>>(initialStates);
   
   useEffect(() => {
-    setLastUpdated('2025-09-27');
+    setLastUpdated('2026-02-09');
   }, [setLastUpdated]);
 
   // Auto-fetch for Principal Investigator
