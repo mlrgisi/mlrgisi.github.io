@@ -93,12 +93,6 @@ export const newsItems: NewsItem[] = [
     uploadDate: '2025-08-16',
     type: 'announcement',
     content: 'Mr. Debanjan Dutta has been awarded the TCS scholarship under the TCS Research Scholar Program.',
-    images: [
-      {
-        url: '/news/2025/TCSRSP.png',
-        caption: ''
-      }
-    ],
   },
   {
     id: '6',
