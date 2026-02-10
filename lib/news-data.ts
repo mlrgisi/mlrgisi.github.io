@@ -23,15 +23,15 @@ export const newsItems: NewsItem[] = [
     content: 'Dr. Faizanuddin Ansari successfully defended his PhD thesis at ISI Kolkata and joins École Polytechnique & Paris Telecom as a postdoc!',
     images: [
       {
-        url: '/news/2026/PhDDefense1.jpg',
+        url: '/news/2026/PhDDefense4.jpeg',
         caption: 'A Journey from Mr. to Dr. (Dr. Faizanuddin Ansari).'
       },
       {
-        url: '/news/2026/PhDDefense3.jpg',
+        url: '/news/2026/PhDDefense5.jpeg',
         caption: 'A Journey from Mr. to Dr. (Dr. Faizanuddin Ansari).'
       },
       {
-        url: '/news/2026/PhDDefense5.jpg',
+        url: '/news/2026/PhDDefense6.jpeg',
         caption: 'A Journey from Mr. to Dr. (Dr. Faizanuddin Ansari).'
       }
     ],
@@ -50,11 +50,11 @@ export const newsItems: NewsItem[] = [
         caption: 'A Journey from Mr. to Dr. (Dr. Anish Chakrabarty).'
       },
       {
-        url: '/news/2026/PhDDefense3.jpg',
+        url: '/news/2026/PhDDefense2.jpg',
         caption: 'A Journey from Mr. to Dr. (Dr. Anish Chakrabarty).'
       },
       {
-        url: '/news/2026/PhDDefense5.jpg',
+        url: '/news/2026/PhDDefense3.jpg',
         caption: 'A Journey from Mr. to Dr. (Dr. Anish Chakrabarty).'
       }
     ],
