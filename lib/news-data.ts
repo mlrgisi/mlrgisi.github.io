@@ -20,7 +20,7 @@ export const newsItems: NewsItem[] = [
     date: '2026-02-09',
     uploadDate: '2026-02-09',
     type: 'award',
-    content: 'Dr. Faizanuddin Ansari successfully defended his PhD thesis at ISI Kolkata and joins École Polytechnique & Paris Telecom as a postdoc!',
+    content: 'Dr. Faizanuddin Ansari successfully defended his PhD thesis at ISI Kolkata and joined Philips Healthcare at Bangalore, India',
     images: [
       {
         url: '/news/2026/PhDDefense4.jpeg',
