@@ -130,6 +130,12 @@ export const newsItems: NewsItem[] = [
     date: '2025-05-16',
     uploadDate:'2025-05-16',
     type: 'award',
+    images: [
+      {
+        url: '/news/2026/PhDDefense9.png',
+        caption: 'A Journey from Mrs. to Dr. (Dr. Susmita Sen).'
+      },
+    ],
     content: 'We congratulate Mrs Susmita Ghosh on the successful defence of her doctoral research.',
   },
   {
