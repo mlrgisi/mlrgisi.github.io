@@ -132,7 +132,7 @@ export const newsItems: NewsItem[] = [
     type: 'award',
     images: [
       {
-        url: '/news/2026/PhDDefense9.png',
+        url: '/news/2026/PhDDefense9.JPG',
         caption: 'A Journey from Mrs. to Dr. (Dr. Susmita Sen).'
       },
     ],
