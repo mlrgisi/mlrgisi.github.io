@@ -15,8 +15,31 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    id: '3',
+    title: 'Mr. Kushal Bose has successfully defended his PhD thesis.',
+    date: '2026-04-13',
+    uploadDate: '2026-04-13',
+    type: 'award',
+    content: 'Dr. Kushal Bose successfully defended his PhD thesis at ISI Kolkata and will join ELLIS Institute Finland as a Postdoctoral Fellow.',
+    images: [
+      {
+        url: '/news/2026/PhDDefense10.jpg',
+        caption: 'A Journey from Mr. to Dr. (Dr. Kushal Bose).'
+      },
+      {
+        url: '/news/2026/PhDDefense11.jpg',
+        caption: 'A Journey from Mr. to Dr. (Dr. Kushal Bose).'
+      },
+      {
+        url: '/news/2026/PhDDefense12.jpg',
+        caption: 'A Journey from Mr. to Dr. (Dr. Kushal Bose).'
+      }
+    ],
+    tags: ['award']
+  },
+  {
     id: '2',
-    title: 'Mr. Faizanuddin Ansari has sucessfully defended his PhD thesis.',
+    title: 'Mr. Faizanuddin Ansari has successfully defended his PhD thesis.',
     date: '2026-02-09',
     uploadDate: '2026-02-09',
     type: 'award',
@@ -39,11 +62,11 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: '1',
-    title: 'Mr Anish Chakrabarty has sucessfully defended his PhD thesis.',
+    title: 'Mr Anish Chakrabarty has successfully defended his PhD thesis.',
     date: '2026-02-04',
     uploadDate: '2026-02-09',
     type: 'award',
-    content: 'Dr. Anish Chakraborty successfully defended his PhD thesis at ISI Kolkata and joins École Polytechnique & Paris Telecom as a postdoc!',
+    content: 'Dr. Anish Chakraborty successfully defended his PhD thesis at ISI Kolkata and joins École Polytechnique & Télécom Paris as a Postdoctoral Fellow!',
     images: [
       {
         url: '/news/2026/PhDDefense1.jpg',
@@ -126,7 +149,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: '3',
-    title: 'Mrs Susmita Ghosh has sucessfully defended her PhD thesis',
+    title: 'Mrs Susmita Ghosh has successfully defended her PhD thesis',
     date: '2025-05-16',
     uploadDate:'2025-05-16',
     type: 'award',
