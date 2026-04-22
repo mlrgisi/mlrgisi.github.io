@@ -104,9 +104,8 @@ export const teamMembers: TeamMember[] = [
   {
     id: '4',
     name: 'Kushal Bose',
-    role: 'srf',
-    title: 'ECSU, PhD-CS',
-    remark: "Thesis Submitted",
+    role: 'alumni',
+    title: 'Visiting Scientist @ ECSU, ISI',
     image: Kushal,
     researchAreas: ['Geometric Deep Learning','Non-Euclidean Spaces'],
     joiningDate: '2019-01-10',
