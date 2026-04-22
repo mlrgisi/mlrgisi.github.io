@@ -103,9 +103,9 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: '4',
-    name: 'Kushal Bose',
+    name: 'Dr. Kushal Bose',
     role: 'alumni',
-    title: 'Visiting Scientist @ ECSU, ISI',
+    title: 'ELLIS PDF @ ELLIS Institute Finland',
     image: Kushal,
     researchAreas: ['Geometric Deep Learning','Non-Euclidean Spaces'],
     joiningDate: '2019-01-10',
