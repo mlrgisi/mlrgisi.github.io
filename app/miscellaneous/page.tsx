@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Download, Image, Code, Database, FileText, ExternalLink, Calendar, Users } from 'lucide-react';
+import { Download, Image, Code, Database, FileText, ExternalLink, Calendar, Users, FileSignature } from 'lucide-react';
+import Link from 'next/link';
 
 interface SoftwareItem {
   id: string;
@@ -333,31 +334,50 @@ export default function MiscellaneousPage() {
                 color: 'text-orange-500',
                 bgColor: 'bg-orange-100 dark:bg-orange-900/30',
               },
-            ].map((resource, index) => (
-              <motion.div
-                key={resource.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="research-card p-6 rounded-2xl text-center hover-lift"
-              >
-                <div className={`w-16 h-16 ${resource.bgColor} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
-                  <resource.icon className={`w-8 h-8 ${resource.color}`} />
-                </div>
-                
-                <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-                  {resource.title}
-                </h3>
-                
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  {resource.description}
-                </p>
-                
-                <span className="text-sm font-medium text-blue-500">
-                  {resource.count}
-                </span>
-              </motion.div>
-            ))}
+              {
+                icon: FileSignature,
+                title: 'PDF Forms Generator',
+                description: 'Generate formatted PDFs with custom logos and stamps',
+                count: 'Interactive Tool',
+                color: 'text-pink-500',
+                bgColor: 'bg-pink-100 dark:bg-pink-900/30',
+                href: '/miscellaneous/forms',
+              },
+            ].map((resource, index) => {
+              const cardContent = (
+                <motion.div
+                  key={resource.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="research-card p-6 rounded-2xl text-center hover-lift h-full"
+                >
+                  <div className={`w-16 h-16 ${resource.bgColor} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
+                    <resource.icon className={`w-8 h-8 ${resource.color}`} />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+                    {resource.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    {resource.description}
+                  </p>
+                  
+                  <span className="text-sm font-medium text-blue-500">
+                    {resource.count}
+                  </span>
+                </motion.div>
+              );
+
+              return resource.href ? (
+                <Link href={resource.href} key={resource.title}>
+                  {cardContent}
+                </Link>
+              ) : (
+                cardContent
+              );
+            })}
           </div>
         </div>
       </section>
