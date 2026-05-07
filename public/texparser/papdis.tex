@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\usepackage{pdfpages}      
+\usepackage{tikz}          
+\usepackage{graphicx}      
+\usetikzlibrary{decorations.pathmorphing} 
+\begin{document}
+
+\includepdf[
+  pages=1,                 
+  fitpaper=true,           
+  pagecommand={%
+    \begin{tikzpicture}[remember picture, overlay]
+      \node[anchor=west, inner sep=0pt]
+        at ([xshift=5mm] current page.west)
+        {\includegraphics[width=5cm, angle=90]{logo.png}};
+      \node[rotate=8, opacity=0.8] at (current page.center) {%
+        \begin{tikzpicture}
+          \definecolor{stampgreen}{RGB}{34,150,45}
+          \draw[stampgreen, line width=2.4pt,
+                decorate,
+                decoration={random steps, segment length=3pt, amplitude=0.5pt}]
+                (-5.2,-1.4) rectangle (5.2,1.4);
+          \draw[stampgreen, line width=0.9pt,
+                decorate,
+                decoration={random steps, segment length=3pt, amplitude=0.5pt}]
+                (-5.0,-1.2) rectangle (5.0,1.2);
+          \node[stampgreen] at (0,0)
+            {\fontfamily{phv}\fontseries{b}\fontsize{55}{70}\selectfont ACCEPTED};
+        \end{tikzpicture}
+      };
+    \end{tikzpicture}
+  }
+]{mydoc.pdf}
+
+\end{document}
