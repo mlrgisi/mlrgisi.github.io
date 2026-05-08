@@ -42,7 +42,7 @@ export default function FormsPage() {
     }
   };
 
-  const generateTexCode = () => {
+  const generateTexCode = (logoFileName: string) => {
     return `\\documentclass{article}
 
 \\usepackage{pdfpages}      
@@ -59,7 +59,7 @@ export default function FormsPage() {
     \\begin{tikzpicture}[remember picture, overlay]
       \\node[anchor=west, inner sep=0pt]
         at ([xshift=${xshift}] current page.west)
-        {\\includegraphics[width=${width}, angle=${angle}]{logo.png}};
+        {\\includegraphics[width=${width}, angle=${angle}]{${logoFileName}}};
       \\node[rotate=${rotate}, opacity=${opacity}] at (current page.center) {%
         \\begin{tikzpicture}
           \\definecolor{stampgreen}{RGB}{${colorR},${colorG},${colorB}}
@@ -97,6 +97,39 @@ export default function FormsPage() {
     });
   };
 
+  const processLogoFile = async (file: File): Promise<{ data: Uint8Array, name: string }> => {
+    if (file.name.toLowerCase().endsWith('.svg') || file.type === 'image/svg+xml') {
+      return new Promise((resolve, reject) => {
+        const url = URL.createObjectURL(file);
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width || 1024;
+          canvas.height = img.height || 1024;
+          const ctx = canvas.getContext('2d');
+          if (!ctx) return reject(new Error("Canvas context failed"));
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          canvas.toBlob((blob) => {
+            URL.revokeObjectURL(url);
+            if (!blob) return reject(new Error("Blob creation failed"));
+            blob.arrayBuffer().then(buffer => {
+              const newName = file.name.replace(/\.svg$/i, '.png');
+              resolve({ data: new Uint8Array(buffer), name: newName });
+            });
+          }, 'image/png');
+        };
+        img.onerror = () => {
+          URL.revokeObjectURL(url);
+          reject(new Error("Failed to load SVG for conversion"));
+        };
+        img.src = url;
+      });
+    } else {
+      const data = await readAsUint8Array(file);
+      return { data, name: file.name };
+    }
+  };
+
   const handleCompile = async () => {
     if (!pdfFile || !logoFile) {
       setError("Please upload both a PDF and a Logo image.");
@@ -112,12 +145,12 @@ export default function FormsPage() {
       await engine.loadEngine();
 
       const pdfData = await readAsUint8Array(pdfFile);
-      const logoData = await readAsUint8Array(logoFile);
+      const { data: logoData, name: logoFileName } = await processLogoFile(logoFile);
 
       engine.writeMemFSFile('mydoc.pdf', pdfData);
-      engine.writeMemFSFile('logo.png', logoData);
+      engine.writeMemFSFile(logoFileName, logoData);
 
-      const texCode = generateTexCode();
+      const texCode = generateTexCode(logoFileName);
       engine.writeMemFSFile('papdis.tex', texCode);
       engine.setEngineMainFile('papdis.tex');
 
@@ -374,7 +407,7 @@ export default function FormsPage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 }}
-              className="glass-effect p-6 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col justify-center items-center h-48"
+              className="glass-effect p-6 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col justify-center items-center min-h-[12rem]"
             >
               {error && (
                 <div className="w-full mb-4 p-3 bg-red-100 text-red-700 rounded-lg text-sm">
@@ -388,6 +421,16 @@ export default function FormsPage() {
                     <CheckCircle className="w-5 h-5 mr-2" />
                     Compilation Successful
                   </div>
+                  
+                  {/* PDF Preview Thumbnail */}
+                  <div className="w-full h-80 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-inner bg-gray-100 dark:bg-gray-800">
+                    <iframe
+                      src={`${resultPdfUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                      className="w-full h-full"
+                      title="PDF Preview"
+                    />
+                  </div>
+
                   <a
                     href={resultPdfUrl}
                     download="accepted_manuscript.pdf"

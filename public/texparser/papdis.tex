@@ -2,8 +2,16 @@
 
 \usepackage{pdfpages}      
 \usepackage{tikz}          
-\usepackage{graphicx}      
+\usepackage{graphicx, svg}    
 \usetikzlibrary{decorations.pathmorphing} 
+\usepackage{xstring}
+\newcommand{\smartgraphics}[2][]{%
+  \IfEndWith{#2}{.svg}{%
+    \includesvg[#1]{#2}%
+  }{%
+    \includegraphics[#1]{#2}%
+  }%
+}
 \begin{document}
 
 \includepdf[
@@ -13,7 +21,8 @@
     \begin{tikzpicture}[remember picture, overlay]
       \node[anchor=west, inner sep=0pt]
         at ([xshift=5mm] current page.west)
-        {\includegraphics[width=5cm, angle=90]{logo.png}};
+        % {\includegraphics[width=5cm, angle=90]{logo.png}};
+        {\smartgraphics[width=5cm, angle=90]{logo.svg}};
       \node[rotate=8, opacity=0.8] at (current page.center) {%
         \begin{tikzpicture}
           \definecolor{stampgreen}{RGB}{34,150,45}
