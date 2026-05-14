@@ -17,9 +17,7 @@ interface Author {
 }
 
 
-const internalList = ['Das, Swagatam', 'Swagatam Das', 'Das, S.', 
-                      'Chakrabarty, Anish', 'Anish Chakrabarty', 'Chakrabarty, A.',
-                      'Bose, Kushal', 'Kushal Bose' , 'Bose, K.',
+const internalList = ['Das, Swagatam', 'Swagatam Das', 'Das, S.',
                       'Ojha, Indranil', 'Indranil Ojha', 'Ojha, I.',
                       'Mondal, Priyobrata', 'Priyobrata Mondal', 'Mondal, P.',
                       'Pratihar, Arghya', 'Arghya Pratihar', 'Pratihar, A.',
@@ -27,9 +25,11 @@ const internalList = ['Das, Swagatam', 'Swagatam Das', 'Das, S.',
                       'Mandal, Aniruddha', 'Aniruddha Mandal', 'Mandal, A.',
                       'Dutta, Debanjan', 'Debanjan Dutta', 'Dutta, D.',
                       'Chakraborty, Shinjon', 'Shinjon Chakraborty', 'Chakraborty, S.',
-                      'Mukherjee, Pritam', 'Pritam Mukherjee', 'Mukherjee, P.',
+                      'Roy, Srinjoy', 'Srinjoy Roy', 'Roy, S.',
                      ];
 const alumniList   = [
+                      'Chakrabarty, Anish', 'Anish Chakrabarty', 'Chakrabarty, A.',
+                      'Bose, Kushal', 'Kushal Bose' , 'Bose, K.',
                       'Ansari, Faizanuddin', 'Faizanuddin Ansari', 'Ansari, F.',
                       'Ghosh, Susmita', 'Susmita Ghosh', 'Ghosh, S.',
                       'Gupta, Avisek', 'Avisek Gupta', 'Gupta, A.',

@@ -6,14 +6,14 @@ self.memlog = "";
 self.initmem = undefined;
 self.mainfile = "main.tex";
 self.texlive_endpoint = "https://texlive.texlyre.org/"; // self.location.origin + "/"; // "https://texlive.emaily.re/";
-Module["print"] = function(a) {
+Module["print"] = function (a) {
     self.memlog += a + "\n"
 };
-Module["printErr"] = function(a) {
+Module["printErr"] = function (a) {
     self.memlog += a + "\n";
     console.log(a)
 };
-Module["preRun"] = function() {
+Module["preRun"] = function () {
     FS.mkdir(TEXCACHEROOT);
     FS.mkdir(WORKROOT)
 };
@@ -54,7 +54,7 @@ function prepareExecutionContext() {
     closeFSStreams();
     FS.chdir(WORKROOT)
 }
-Module["postRun"] = function() {
+Module["postRun"] = function () {
     self.postMessage({
         "result": "ok"
     });
@@ -94,7 +94,7 @@ function cleanDir(dir) {
         }
     }
 }
-Module["onAbort"] = function() {
+Module["onAbort"] = function () {
     self.memlog += "Engine crashed";
     self.postMessage({
         "result": "failed",
@@ -226,7 +226,7 @@ function setTexliveEndpoint(url) {
         self.texlive_endpoint = url
     }
 }
-self["onmessage"] = function(ev) {
+self["onmessage"] = function (ev) {
     let data = ev["data"];
     let cmd = data["cmd"];
     if (cmd === "compilelatex") {
@@ -436,7 +436,7 @@ if (ENVIRONMENT_IS_NODE) {
             xhr.send(null)
         }
     }
-} else {}
+} else { }
 var out = Module["print"] || console.log.bind(console);
 var err = Module["printErr"] || console.error.bind(console);
 Object.assign(Module, moduleOverrides);
@@ -629,7 +629,7 @@ function instantiateAsync(binary, binaryFile, imports, callback) {
             credentials: "same-origin"
         }).then(response => {
             var result = WebAssembly.instantiateStreaming(response, imports);
-            return result.then(callback, function(reason) {
+            return result.then(callback, function (reason) {
                 err(`wasm streaming compile failed: ${reason}`);
                 err("falling back to ArrayBuffer instantiation");
                 return instantiateArrayBuffer(binaryFile, imports, callback)
@@ -780,7 +780,7 @@ var PATH = {
         if (lastSlash === -1) return path;
         return path.substr(lastSlash + 1)
     },
-    join: function() {
+    join: function () {
         var paths = Array.prototype.slice.call(arguments);
         return PATH.normalize(paths.join("/"))
     },
@@ -798,13 +798,13 @@ var initRandomFill = () => {
             }
             var randomBytes = crypto_module["randomBytes"];
             return view => (view.set(randomBytes(view.byteLength)), view)
-        } catch (e) {}
+        } catch (e) { }
     }
     abort("initRandomDevice")
 };
 var randomFill = view => (randomFill = initRandomFill())(view);
 var PATH_FS = {
-    resolve: function() {
+    resolve: function () {
         var resolvedPath = "",
             resolvedAbsolute = false;
         for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
@@ -952,8 +952,8 @@ var FS_stdin_getChar = () => {
 };
 var TTY = {
     ttys: [],
-    init() {},
-    shutdown() {},
+    init() { },
+    shutdown() { },
     register(dev, ops) {
         TTY.ttys[dev] = {
             input: [],
@@ -1231,7 +1231,7 @@ var MEMFS = {
                 var new_node;
                 try {
                     new_node = FS.lookupNode(new_dir, new_name)
-                } catch (e) {}
+                } catch (e) { }
                 if (new_node) {
                     for (var i in new_node.contents) {
                         throw new FS.ErrnoError(55)
@@ -1420,9 +1420,9 @@ var FS_createPreloadedFile = (parent, name, url, canRead, canWrite, onload, oner
             removeRunDependency(dep)
         }
         if (FS_handledByPreloadPlugin(byteArray, fullname, finish, () => {
-                if (onerror) onerror();
-                removeRunDependency(dep)
-            })) {
+            if (onerror) onerror();
+            removeRunDependency(dep)
+        })) {
             return
         }
         finish(byteArray)
@@ -1636,7 +1636,7 @@ var FS = {
         try {
             var node = FS.lookupNode(dir, name);
             return 20
-        } catch (e) {}
+        } catch (e) { }
         return FS.nodePermissions(dir, "wx")
     },
     mayDelete(dir, name, isdir) {
@@ -1696,7 +1696,7 @@ var FS = {
     getStream: fd => FS.streams[fd],
     createStream(stream, fd = -1) {
         if (!FS.FSStream) {
-            FS.FSStream = function() {
+            FS.FSStream = function () {
                 this.shared = {}
             };
             FS.FSStream.prototype = {};
@@ -1987,7 +1987,7 @@ var FS = {
         var new_node;
         try {
             new_node = FS.lookupNode(new_dir, new_name)
-        } catch (e) {}
+        } catch (e) { }
         if (old_node === new_node) {
             return
         }
@@ -2218,7 +2218,7 @@ var FS = {
                     follow: !(flags & 131072)
                 });
                 node = lookup.node
-            } catch (e) {}
+            } catch (e) { }
         }
         var created = false;
         if (flags & 64) {
@@ -2535,7 +2535,7 @@ var FS = {
         FS.ErrnoError = function ErrnoError(errno, node) {
             this.name = "ErrnoError";
             this.node = node;
-            this.setErrno = function(errno) {
+            this.setErrno = function (errno) {
                 this.errno = errno
             };
             this.setErrno(errno);
@@ -2590,7 +2590,7 @@ var FS = {
                 follow: !dontResolveLastLink
             });
             path = lookup.path
-        } catch (e) {}
+        } catch (e) { }
         var ret = {
             isRoot: false,
             exists: false,
@@ -2632,7 +2632,7 @@ var FS = {
             var current = PATH.join2(parent, part);
             try {
                 FS.mkdir(current)
-            } catch (e) {}
+            } catch (e) { }
             parent = current
         }
         return current
@@ -2800,7 +2800,7 @@ var FS = {
             var lazyArray = new LazyUint8Array;
             Object.defineProperties(lazyArray, {
                 length: {
-                    get: function() {
+                    get: function () {
                         if (!this.lengthKnown) {
                             this.cacheLength()
                         }
@@ -2808,7 +2808,7 @@ var FS = {
                     }
                 },
                 chunkSize: {
-                    get: function() {
+                    get: function () {
                         if (!this.lengthKnown) {
                             this.cacheLength()
                         }
@@ -2835,7 +2835,7 @@ var FS = {
         }
         Object.defineProperties(node, {
             usedBytes: {
-                get: function() {
+                get: function () {
                     return this.contents.length
                 }
             }
@@ -3289,7 +3289,7 @@ var growMemory = size => {
         wasmMemory.grow(pages);
         updateMemoryViews();
         return 1
-    } catch (e) {}
+    } catch (e) { }
 };
 var _emscripten_resize_heap = requestedSize => {
     var oldSize = HEAPU8.length;
@@ -3464,7 +3464,7 @@ function _kpse_find_pk_js(nameptr, dpi) {
 }
 var arraySum = (array, index) => {
     var sum = 0;
-    for (var i = 0; i <= index; sum += array[i++]) {}
+    for (var i = 0; i <= index; sum += array[i++]) { }
     return sum
 };
 var MONTH_DAYS_LEAP = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -3767,11 +3767,11 @@ var cwrap = (ident, returnType, argTypes, opts) => {
     if (numericRet && numericArgs && !opts) {
         return getCFunc(ident)
     }
-    return function() {
+    return function () {
         return ccall(ident, returnType, argTypes, arguments, opts)
     }
 };
-var FSNode = function(parent, name, mode, rdev) {
+var FSNode = function (parent, name, mode, rdev) {
     if (!parent) {
         parent = this
     }
@@ -3789,28 +3789,28 @@ var readMode = 292 | 73;
 var writeMode = 146;
 Object.defineProperties(FSNode.prototype, {
     read: {
-        get: function() {
+        get: function () {
             return (this.mode & readMode) === readMode
         },
-        set: function(val) {
+        set: function (val) {
             val ? this.mode |= readMode : this.mode &= ~readMode
         }
     },
     write: {
-        get: function() {
+        get: function () {
             return (this.mode & writeMode) === writeMode
         },
-        set: function(val) {
+        set: function (val) {
             val ? this.mode |= writeMode : this.mode &= ~writeMode
         }
     },
     isFolder: {
-        get: function() {
+        get: function () {
             return FS.isDir(this.mode)
         }
     },
     isDevice: {
-        get: function() {
+        get: function () {
             return FS.isChrdev(this.mode)
         }
     }
@@ -4016,8 +4016,8 @@ function run(args = arguments_) {
     }
     if (Module["setStatus"]) {
         Module["setStatus"]("Running...");
-        setTimeout(function() {
-            setTimeout(function() {
+        setTimeout(function () {
+            setTimeout(function () {
                 Module["setStatus"]("")
             }, 1);
             doRun()
