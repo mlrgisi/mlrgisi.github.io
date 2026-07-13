@@ -1,4 +1,29 @@
 
+@article{basu2024fortifying, 
+    title={Fortifying Fully Convolutional Generative Adversarial Networks for Image Super-Resolution Using Divergence Measures}, 
+    volume={40}, 
+    url={}, 
+    DOI={}, 
+    journal={Proceedings of the AAAI Conference on Artificial Intelligence (EAAI)},
+    author={Basu, Arkaprabha and Bose, Kushal and Mullick, Sankha Subhra and Chakrabarty, Anish and Das, Swagatam}, 
+    year={2026}, 
+    month={Jul.}, 
+    abstract={Super-Resolution (SR) is a time-hallowed image processing problem that aims to improve the quality of a Low-Resolution (LR) sample up to the standard of its High-Resolution (HR) counterpart. We aim to address this by introducing Super-Resolution Generator (SuRGe), a fully-convolutional Generative Adversarial Network (GAN)-based architecture for SR. We show that distinct convolutional features obtained at increasing depths of a GAN generator can be optimally combined by a set of learnable convex weights to improve the quality of generated SR samples. In the process, we employ the Jensen-Shannon and the Gromov-Wasserstein losses respectively between the SR-HR and LR-SR pairs of distributions to further aid the generator of SuRGe to better exploit the available information in an attempt to improve SR. Moreover, we train the discriminator of SuRGe with the Wasserstein loss with gradient penalty, to primarily prevent mode collapse. The proposed SuRGe, as an end-to-end GAN workflow tailor-made for super-resolution, offers improved performance while maintaining low inference time. The efficacy of SuRGe is substantiated by its superior performance compared to 28 state-of-the-art contenders on 10 benchmark datasets.},
+    jctype={journal},
+}
+
+@article{chakrabarty2026robust,
+  title={Robust Cross-Domain Alignment},
+  author={Chakrabarty, Anish and Basu, Arkaprabha and Das, Swagatam},
+  journal={Transactions on Machine Learning Research (TMLR)},
+  abstract={The Gromov-Wasserstein (GW) distance is an effective measure of alignment between distributions supported on distinct ambient spaces. Calculating essentially the mutual departure from isometry, it has found vast usage in domain translation and network analysis. It has long been shown to be vulnerable to contamination in the underlying measures. All efforts to introduce robustness in GW have been inspired by similar optimal transport (OT) techniques, which predominantly advocate partial mass transport or unbalancing. In contrast, the cross-domain alignment problem, being fundamentally different from OT, demands specific solutions to tackle diverse applications and contamination regimes. Deriving from robust statistics, we discuss three contextually novel techniques to robustify GW and its variants. For each method, we explore metric properties and robustness guarantees along with their co-dependencies and individual relations with the GW distance. For a comprehensive view, we empirically validate their superior resilience to contamination under real machine learning tasks against state-of-the-art methods.},
+  issn={2835-8856},
+  year={2026},
+  url={https://openreview.net/forum?id=0mchjaZZi4},
+  keywords = {Optimal Transport},
+  jctype={journal},
+}
+
 @inproceedings{pan2025new,
   title     = {A New Framework for Convex Clustering in Kernel Spaces: Finite Sample Bounds, Consistency and Performance Insights},
   author    = {Pan, Shubhayan and Chakraborty, Saptarshi and Paul, Debolina and Bose, Kushal and Das, Swagatam},
@@ -22,7 +47,7 @@ year = {2026},
 issn = {1566-2535},
 doi = {https://doi.org/10.1016/j.inffus.2026.104331},
 url = {https://www.sciencedirect.com/science/article/pii/S1566253526002101},
-author = {Priyobrata Mondal and Faizanuddin Ansari and Swagatam Das},
+author = {Mondal, Priyobrata and Ansari, Faizanuddin and Das, Swagatam},
 keywords = {Class imbalance, Distribution calibration, Synthetic sample generation},
 abstract = {Class imbalance, where certain classes have insufficient data, poses a critical challenge for robust classification, often biasing models toward majority classes. Distribution calibration offers a promising avenue to address this by estimating more accurate class distributions. In this work, Rebalancing with Calibrated Sub-classes (RCS) - a novel distribution calibration framework for robust imbalanced classification has been proposed. RCS aims to fuse statistical information from the majority and intermediate class distributions via a weighted mixture of Gaussian components to estimate minority class parameters more accurately. An encoder-decoder network is trained to preserve structural relationships in imbalanced datasets and prevent feature disentanglement. Post-training, encoder-extracted feature vectors are leveraged to generate synthetic samples guided by the calibrated distributions. This fusion-based calibration effectively mitigates overgeneralization by incorporating neighborhood distribution information rather than relying solely on majority-class statistics. Extensive experiments on diverse image, text, and tabular datasets demonstrate that RCS consistently outperforms several baseline and state-of-the-art methods, highlighting its effectiveness and broad applicability in addressing real-world imbalanced classification challenges. RCS code is available at https://github.com/priyomondal/RCS.}
 jctype={journal},
