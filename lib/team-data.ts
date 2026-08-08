@@ -7,6 +7,8 @@ import Arghya from '../public/arghya.png';
 import Debanjan from '../public/debanjan.png';
 import Bhaskar from '../public/bhaskar.png';
 import Aniruddha from '../public/aniruddha.png';
+import Chinmoy from '../public/chinmoy.jpeg';
+import Anisha from '../public/anisha.jpeg';
 import Blank from '../public/blank.jpeg';
 import Susmita from '../public/susmita.png';
 import Indronil from '../public/Indronil.png';
@@ -173,21 +175,6 @@ export const teamMembers: TeamMember[] = [
     bio: 'Works on investigating the expressive power of Language Models from the lens of theoretical computer science.',
   },
   {
-    id: '28',
-    name: 'Shinjon Chakraborty',
-    role: 'adjunct',
-    title: '',
-    image: Shinjon,
-    researchAreas: ['Causal Inference', 'Optimal Transport'],
-    joiningDate: '2023-01-10',
-    paperCount: 4,
-    dblpName: 'Shinjon_Chakraborty',
-    biasCount: 0,
-    scholar: 'https://www.researchgate.net/profile/Shinjon_Chakraborty',
-    linkedin: 'https://in.linkedin.com/in/shinjon-chakraborty-a684b4209',
-    email: 'shinjonchakraborty07@gmail.com?subject=[FromMLRGSite]',
-  },
-  {
     id: '12',
     name: 'Subhajit Saha',
     role: 'srf',
@@ -199,8 +186,40 @@ export const teamMembers: TeamMember[] = [
     dblpName: 'Subhajit_Saha',
     biasCount: 0,
     scholar: 'https://scholar.google.com/citations?hl=en&user=P0S60L0AAAAJ&view_op=list_works&sortby=pubdate',
-    linkedin: 'https://in.linkedin.com/in/shinjon-chakraborty-a684b4209',
+    linkedin: 'https://in.linkedin.com/in/subhajit-saha-828991198',
     email: 'subhajit.saha.131@tcgcrest.org?subject=[FromMLRGSite]',
+    bio: 'Loading...',
+  },
+  {
+    id: '29',
+    name: 'Anisha Dutta',
+    role: 'jrf',
+    title: 'ECSU, PhD-CS',
+    image: Anisha,
+    researchAreas: ['VLM', 'Multi-Modality'],
+    joiningDate: '2026-07-20',
+    paperCount: 0,
+    dblpName: 'Anisha Dutta',
+    biasCount: 1,
+    scholar: '',
+    linkedin: 'https://in.linkedin.com/in/srianishadutta',
+    email: 'srianishadutta@gmail.com?subject=[FromMLRGSite]',
+    bio: 'Loading...',
+  },
+  {
+    id: '30',
+    name: 'Chinmoy Sahoo',
+    role: 'jrf',
+    title: 'ECSU, PhD-CS',
+    image: Chinmoy,
+    researchAreas: ['VLM', 'Multi-Modality'],
+    joiningDate: '2026-07-20',
+    paperCount: 0,
+    dblpName: 'Chinmoy Sahoo',
+    biasCount: 1,
+    scholar: '',
+    linkedin: 'https://in.linkedin.com/in/chinmoysahoo',
+    email: '   @gmail.com?subject=[FromMLRGSite]',
     bio: 'Loading...',
   },
 //   {
@@ -215,6 +234,21 @@ export const teamMembers: TeamMember[] = [
 //     biasCount: 0,
 //     bio: 'Loading....',
 //   },
+  {
+    id: '28',
+    name: 'Shinjon Chakraborty',
+    role: 'adjunct',
+    title: '',
+    image: Shinjon,
+    researchAreas: ['Causal Inference', 'Optimal Transport'],
+    joiningDate: '2023-01-10',
+    paperCount: 4,
+    dblpName: 'Shinjon_Chakraborty',
+    biasCount: 0,
+    scholar: 'https://www.researchgate.net/profile/Shinjon_Chakraborty',
+    linkedin: 'https://in.linkedin.com/in/shinjon-chakraborty-a684b4209',
+    email: 'shinjonchakraborty07@gmail.com?subject=[FromMLRGSite]',
+  },
   {
     id: '4',
     name: 'Dr. Kushal Bose',
