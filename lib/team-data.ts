@@ -219,7 +219,7 @@ export const teamMembers: TeamMember[] = [
     biasCount: 1,
     scholar: '',
     linkedin: 'https://in.linkedin.com/in/chinmoysahoo',
-    email: '   @gmail.com?subject=[FromMLRGSite]',
+    email: 'chinmoysahoo1999@gmail.com?subject=[FromMLRGSite]',
     bio: 'Loading...',
   },
 //   {
