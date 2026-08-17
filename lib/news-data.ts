@@ -15,6 +15,14 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    id: '4',
+    type: 'announcement',
+    title: 'New Research Members Join',
+    date: '2026-07-20',
+    uploadDate: '2026-08-08',
+    content: 'We welcome two talented PhD students, Anisha and Chinmoy, to our research group this semester.',
+  },
+  {
     id: '3',
     title: 'Mr. Kushal Bose has successfully defended his PhD thesis.',
     date: '2026-04-13',
