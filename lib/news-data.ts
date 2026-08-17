@@ -19,7 +19,7 @@ export const newsItems: NewsItem[] = [
     type: 'announcement',
     title: 'New Research Members Join',
     date: '2026-07-20',
-    uploadDate: '2026-08-08',
+    uploadDate: '2026-08-10',
     content: 'We welcome two talented PhD students, Anisha and Chinmoy, to our research group this semester.',
   },
   {
