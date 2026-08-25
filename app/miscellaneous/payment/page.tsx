@@ -26,14 +26,9 @@ export default function PaymentVoucherPage() {
   const signatureInputRef = useRef<HTMLInputElement>(null);
 
   const [compiling, setCompiling] = useState(false);
+  const [openingOverleaf, setOpeningOverleaf] = useState(false);
   const [resultPdfUrl, setResultPdfUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-
-  const [overleafData, setOverleafData] = useState<{
-    tex: string;
-    sigFileName: string;
-    sigDataUri: string;
-  } | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -119,6 +114,17 @@ export default function PaymentVoucherPage() {
     return res.text();
   };
 
+  const generateFinalTex = async (baseTex: string, sigFileName: string) => {
+    let texCode = baseTex;
+    Object.keys(formData).forEach((key) => {
+      const value = formData[key as keyof typeof formData];
+      const regex = new RegExp(`\\\\newcommand{\\\\${key}}{.*}`);
+      texCode = texCode.replace(regex, `\\newcommand{\\${key}}{${value}}`);
+    });
+    texCode = texCode.replace('example-image-a', sigFileName);
+    return texCode;
+  };
+
   const handleCompile = async () => {
     if (!signatureFile) {
       setError("Please upload your signature.");
@@ -128,34 +134,19 @@ export default function PaymentVoucherPage() {
     setCompiling(true);
     setError(null);
     setResultPdfUrl(null);
-    setOverleafData(null);
 
     try {
       const engine = new PdfTeXEngine();
       await engine.loadEngine();
 
-      // Fetch base template and logo
       const baseTex = await fetchTextAsset('/texparser/paymentvoucher.tex');
       const logoData = await fetchAsset('/texparser/logoaccounts.png');
       engine.writeMemFSFile('logoaccounts.png', logoData);
 
-      // Process and write signature image
-      const { data: sigData, name: sigFileName, dataUri: sigDataUri } = await processImageFile(signatureFile);
+      const { data: sigData, name: sigFileName } = await processImageFile(signatureFile);
       engine.writeMemFSFile(sigFileName, sigData);
 
-      // Customize the TeX code
-      let texCode = baseTex;
-      
-      // Replace fields in lines 7-19
-      Object.keys(formData).forEach((key) => {
-        const value = formData[key as keyof typeof formData];
-        const regex = new RegExp(`\\\\newcommand{\\\\${key}}{.*}`);
-        texCode = texCode.replace(regex, `\\newcommand{\\${key}}{${value}}`);
-      });
-
-      // Replace example-image-a with signature file
-      texCode = texCode.replace('example-image-a', sigFileName);
-
+      const texCode = await generateFinalTex(baseTex, sigFileName);
       engine.writeMemFSFile('paymentvoucher_final.tex', texCode);
       engine.setEngineMainFile('paymentvoucher_final.tex');
 
@@ -165,12 +156,6 @@ export default function PaymentVoucherPage() {
         const blob = new Blob([result.pdf], { type: 'application/pdf' });
         const url = URL.createObjectURL(blob);
         setResultPdfUrl(url);
-        
-        setOverleafData({
-          tex: texCode,
-          sigFileName,
-          sigDataUri
-        });
       } else {
         setError("Compilation failed. Check console log for details.");
         console.error(result.log);
@@ -185,8 +170,53 @@ export default function PaymentVoucherPage() {
     }
   };
 
-  const getTexDataUri = (tex: string) => {
-    return "data:application/x-tex;base64," + btoa(unescape(encodeURIComponent(tex)));
+  const handleOverleaf = async () => {
+    if (!signatureFile) {
+      setError("Please upload your signature.");
+      return;
+    }
+    
+    setOpeningOverleaf(true);
+    setError(null);
+
+    try {
+      const baseTex = await fetchTextAsset('/texparser/paymentvoucher.tex');
+      const { name: sigFileName, dataUri: sigDataUri } = await processImageFile(signatureFile);
+      const texCode = await generateFinalTex(baseTex, sigFileName);
+
+      const texDataUri = "data:application/x-tex;base64," + btoa(unescape(encodeURIComponent(texCode)));
+
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://www.overleaf.com/docs';
+      form.target = '_blank';
+
+      const appendInput = (name: string, value: string) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        input.value = value;
+        form.appendChild(input);
+      };
+
+      appendInput('snip_uri[]', texDataUri);
+      appendInput('snip_name[]', 'main.tex');
+
+      appendInput('snip_uri[]', `${window.location.origin}/texparser/logoaccounts.png`);
+      appendInput('snip_name[]', 'logoaccounts.png');
+
+      appendInput('snip_uri[]', sigDataUri);
+      appendInput('snip_name[]', sigFileName);
+
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+    } catch (err: any) {
+      setError(err?.message || "Failed to open in Overleaf. Check console for details.");
+      console.error(err);
+    } finally {
+      setOpeningOverleaf(false);
+    }
   };
 
   return (
@@ -377,33 +407,6 @@ export default function PaymentVoucherPage() {
                     <span>Download PDF</span>
                   </a>
 
-                  {/* Overleaf Button */}
-                  {overleafData && (
-                    <form action="https://www.overleaf.com/docs" method="post" target="_blank" className="w-full">
-                      <input type="hidden" name="snip_uri[]" value={getTexDataUri(overleafData.tex)} />
-                      <input type="hidden" name="snip_name[]" value="main.tex" />
-                      
-                      {/* Logo is statically served, so we can pass its absolute URL */}
-                      <input type="hidden" name="snip_uri[]" value={typeof window !== 'undefined' ? `${window.location.origin}/texparser/logoaccounts.png` : ''} />
-                      <input type="hidden" name="snip_name[]" value="logoaccounts.png" />
-                      
-                      {/* Signature image passed as Data URI */}
-                      <input type="hidden" name="snip_uri[]" value={overleafData.sigDataUri} />
-                      <input type="hidden" name="snip_name[]" value={overleafData.sigFileName} />
-
-                      <button
-                        type="submit"
-                        className="w-full px-6 py-3 bg-[#47a141] hover:bg-[#3d8a38] text-white rounded-lg font-semibold shadow-md transition-all flex items-center justify-center space-x-2 mt-2"
-                      >
-                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                          <path d="M11 20.3c-.6 0-1.1-.3-1.4-.7L4.7 13.1c-.6-.8-.5-1.9.3-2.5.8-.6 1.9-.5 2.5.3l3.6 4.7V3.5c0-1 .8-1.8 1.8-1.8s1.8.8 1.8 1.8v12l3.6-4.7c.6-.8 1.7-.9 2.5-.3.8.6.9 1.7.3 2.5l-4.9 6.5c-.3.4-.8.7-1.4.7z" opacity="0.3"/>
-                          <path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm0-18C7.6 4 4 7.6 4 12s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"/>
-                        </svg>
-                        <span>Open in Overleaf</span>
-                      </button>
-                    </form>
-                  )}
-
                   <button
                     onClick={() => setResultPdfUrl(null)}
                     className="text-sm text-gray-500 hover:text-gray-700 underline mt-4"
@@ -412,26 +415,52 @@ export default function PaymentVoucherPage() {
                   </button>
                 </div>
               ) : (
-                <button
-                  onClick={handleCompile}
-                  disabled={compiling || !signatureFile}
-                  className={`w-full px-6 py-4 rounded-xl font-bold text-lg text-white transition-all shadow-md flex items-center justify-center space-x-3
-                    ${(compiling || !signatureFile)
-                      ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-xl hover:scale-[1.02]'}`}
-                >
-                  {compiling ? (
-                    <>
-                      <Loader2 className="w-6 h-6 animate-spin" />
-                      <span>Compiling LaTeX...</span>
-                    </>
-                  ) : (
-                    <>
-                      <FileSignature className="w-6 h-6" />
-                      <span>Generate Voucher</span>
-                    </>
-                  )}
-                </button>
+                <div className="w-full space-y-3">
+                  <button
+                    onClick={handleCompile}
+                    disabled={compiling || openingOverleaf || !signatureFile}
+                    className={`w-full px-6 py-4 rounded-xl font-bold text-lg text-white transition-all shadow-md flex items-center justify-center space-x-3
+                      ${(compiling || openingOverleaf || !signatureFile)
+                        ? 'bg-gray-400 cursor-not-allowed'
+                        : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-xl hover:scale-[1.02]'}`}
+                  >
+                    {compiling ? (
+                      <>
+                        <Loader2 className="w-6 h-6 animate-spin" />
+                        <span>Compiling LaTeX...</span>
+                      </>
+                    ) : (
+                      <>
+                        <FileSignature className="w-6 h-6" />
+                        <span>Generate Voucher</span>
+                      </>
+                    )}
+                  </button>
+
+                  <button
+                    onClick={handleOverleaf}
+                    disabled={compiling || openingOverleaf || !signatureFile}
+                    className={`w-full px-6 py-4 rounded-xl font-bold text-lg text-white transition-all shadow-md flex items-center justify-center space-x-3
+                      ${(compiling || openingOverleaf || !signatureFile)
+                        ? 'bg-gray-400 cursor-not-allowed'
+                        : 'bg-[#47a141] hover:bg-[#3d8a38] hover:shadow-xl hover:scale-[1.02]'}`}
+                  >
+                    {openingOverleaf ? (
+                      <>
+                        <Loader2 className="w-6 h-6 animate-spin" />
+                        <span>Opening in Overleaf...</span>
+                      </>
+                    ) : (
+                      <>
+                        <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                          <path d="M11 20.3c-.6 0-1.1-.3-1.4-.7L4.7 13.1c-.6-.8-.5-1.9.3-2.5.8-.6 1.9-.5 2.5.3l3.6 4.7V3.5c0-1 .8-1.8 1.8-1.8s1.8.8 1.8 1.8v12l3.6-4.7c.6-.8 1.7-.9 2.5-.3.8.6.9 1.7.3 2.5l-4.9 6.5c-.3.4-.8.7-1.4.7z" opacity="0.3"/>
+                          <path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm0-18C7.6 4 4 7.6 4 12s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"/>
+                        </svg>
+                        <span>Open in Overleaf</span>
+                      </>
+                    )}
+                  </button>
+                </div>
               )}
             </motion.div>
           </div>
