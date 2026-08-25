@@ -29,6 +29,12 @@ export default function PaymentVoucherPage() {
   const [resultPdfUrl, setResultPdfUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  const [overleafData, setOverleafData] = useState<{
+    tex: string;
+    sigFileName: string;
+    sigDataUri: string;
+  } | null>(null);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -55,7 +61,16 @@ export default function PaymentVoucherPage() {
     });
   };
 
-  const processImageFile = async (file: File): Promise<{ data: Uint8Array, name: string }> => {
+  const fileToDataUri = (file: File | Blob): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const processImageFile = async (file: File): Promise<{ data: Uint8Array, name: string, dataUri: string }> => {
     if (file.name.toLowerCase().endsWith('.svg') || file.type === 'image/svg+xml') {
       return new Promise((resolve, reject) => {
         const url = URL.createObjectURL(file);
@@ -70,9 +85,11 @@ export default function PaymentVoucherPage() {
           canvas.toBlob((blob) => {
             URL.revokeObjectURL(url);
             if (!blob) return reject(new Error("Blob creation failed"));
-            blob.arrayBuffer().then(buffer => {
-              const newName = file.name.replace(/\.svg$/i, '.png');
-              resolve({ data: new Uint8Array(buffer), name: newName });
+            fileToDataUri(blob).then(dataUri => {
+              blob.arrayBuffer().then(buffer => {
+                const newName = file.name.replace(/\.svg$/i, '.png');
+                resolve({ data: new Uint8Array(buffer), name: newName, dataUri });
+              });
             });
           }, 'image/png');
         };
@@ -84,7 +101,8 @@ export default function PaymentVoucherPage() {
       });
     } else {
       const data = await readAsUint8Array(file);
-      return { data, name: file.name };
+      const dataUri = await fileToDataUri(file);
+      return { data, name: file.name, dataUri };
     }
   };
 
@@ -110,6 +128,7 @@ export default function PaymentVoucherPage() {
     setCompiling(true);
     setError(null);
     setResultPdfUrl(null);
+    setOverleafData(null);
 
     try {
       const engine = new PdfTeXEngine();
@@ -121,7 +140,7 @@ export default function PaymentVoucherPage() {
       engine.writeMemFSFile('logoaccounts.png', logoData);
 
       // Process and write signature image
-      const { data: sigData, name: sigFileName } = await processImageFile(signatureFile);
+      const { data: sigData, name: sigFileName, dataUri: sigDataUri } = await processImageFile(signatureFile);
       engine.writeMemFSFile(sigFileName, sigData);
 
       // Customize the TeX code
@@ -146,6 +165,12 @@ export default function PaymentVoucherPage() {
         const blob = new Blob([result.pdf], { type: 'application/pdf' });
         const url = URL.createObjectURL(blob);
         setResultPdfUrl(url);
+        
+        setOverleafData({
+          tex: texCode,
+          sigFileName,
+          sigDataUri
+        });
       } else {
         setError("Compilation failed. Check console log for details.");
         console.error(result.log);
@@ -158,6 +183,10 @@ export default function PaymentVoucherPage() {
     } finally {
       setCompiling(false);
     }
+  };
+
+  const getTexDataUri = (tex: string) => {
+    return "data:application/x-tex;base64," + btoa(unescape(encodeURIComponent(tex)));
   };
 
   return (
@@ -347,9 +376,37 @@ export default function PaymentVoucherPage() {
                     <Download className="w-5 h-5" />
                     <span>Download PDF</span>
                   </a>
+
+                  {/* Overleaf Button */}
+                  {overleafData && (
+                    <form action="https://www.overleaf.com/docs" method="post" target="_blank" className="w-full">
+                      <input type="hidden" name="snip_uri[]" value={getTexDataUri(overleafData.tex)} />
+                      <input type="hidden" name="snip_name[]" value="main.tex" />
+                      
+                      {/* Logo is statically served, so we can pass its absolute URL */}
+                      <input type="hidden" name="snip_uri[]" value={typeof window !== 'undefined' ? `${window.location.origin}/texparser/logoaccounts.png` : ''} />
+                      <input type="hidden" name="snip_name[]" value="logoaccounts.png" />
+                      
+                      {/* Signature image passed as Data URI */}
+                      <input type="hidden" name="snip_uri[]" value={overleafData.sigDataUri} />
+                      <input type="hidden" name="snip_name[]" value={overleafData.sigFileName} />
+
+                      <button
+                        type="submit"
+                        className="w-full px-6 py-3 bg-[#47a141] hover:bg-[#3d8a38] text-white rounded-lg font-semibold shadow-md transition-all flex items-center justify-center space-x-2 mt-2"
+                      >
+                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                          <path d="M11 20.3c-.6 0-1.1-.3-1.4-.7L4.7 13.1c-.6-.8-.5-1.9.3-2.5.8-.6 1.9-.5 2.5.3l3.6 4.7V3.5c0-1 .8-1.8 1.8-1.8s1.8.8 1.8 1.8v12l3.6-4.7c.6-.8 1.7-.9 2.5-.3.8.6.9 1.7.3 2.5l-4.9 6.5c-.3.4-.8.7-1.4.7z" opacity="0.3"/>
+                          <path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm0-18C7.6 4 4 7.6 4 12s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"/>
+                        </svg>
+                        <span>Open in Overleaf</span>
+                      </button>
+                    </form>
+                  )}
+
                   <button
                     onClick={() => setResultPdfUrl(null)}
-                    className="text-sm text-gray-500 hover:text-gray-700 underline"
+                    className="text-sm text-gray-500 hover:text-gray-700 underline mt-4"
                   >
                     Generate Another
                   </button>
