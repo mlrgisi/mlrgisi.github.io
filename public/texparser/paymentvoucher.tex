@@ -1,0 +1,127 @@
+\documentclass[letter,10pt]{article}
+\usepackage{graphicx, geometry, array, pifont}
+\geometry{top=0.5in, bottom=0.5in, left=0.5in, right=0.5in}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\newcommand{\name}{}
+\newcommand{\email}{}
+\newcommand{\mobile}{}
+\newcommand{\addone}{}
+\newcommand{\addtwo}{}
+\newcommand{\addthree}{}
+\newcommand{\pan}{}
+\newcommand{\purpose}{}
+\newcommand{\accno}{}
+\newcommand{\bankname}{}
+\newcommand{\bankbranch}{}
+\newcommand{\ifsc}{}
+\newcommand{\swift}{}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{minipage}{0.9\linewidth}
+  \begin{center}\Large
+      INDIAN STATISTICAL INSTITUTE\\
+      PAYMENT VOUCHER
+  \end{center}
+\end{minipage}
+\begin{minipage}{0.1\linewidth}
+    \includegraphics[scale=1]{logoaccounts.png}
+\end{minipage}
+
+\bigskip
+
+\noindent REIMBURSEMENT OF HONORARIUM/LOCAL CONVEYANCE TO VISITING SCIENTIST/EXTERNAL EXPERT\\
+DEPARTMENT NAME: \underline{\hspace*{6cm} ECSU\hspace*{6cm}}.
+
+\vspace{5mm}
+
+\noindent
+\begin{tabular}{|m{0.225\linewidth}|m{0.725\linewidth}|}\hline
+    NAME &  \uppercase{\name} \\ \hline
+    EMAIL ADDRESS & \uppercase{\email} \\ \hline
+    MOBILE NUMBER & \uppercase{\mobile} \\ \hline
+    ADDRESS 1: & \uppercase{\addone} \\ \hline
+    ADDRESS 2: & \uppercase{\addtwo}\\ \hline
+    ADDRESS 3: & \uppercase{\addthree}\\ \hline
+    PAN NUMBER & \uppercase{\pan}\\ \hline
+    PURPOSE OF VISIT & \uppercase{\purpose} \\ \hline
+\end{tabular}
+
+\vspace{2mm}
+
+\begin{center}
+    HONORARIUM PAYABLE
+\end{center}
+
+\vspace{2mm}
+
+\noindent
+\begin{tabular}{|m{0.85\linewidth}|m{0.1\linewidth}|}\hline
+    (A)   HONORARIUM PAYABLE FOR GIVING LECTURE/MEETGING AS STATED IN PURPOSE   & \\ \hline
+    (B)   LESS: TDS DEDUCTION U/S 194@10\% IF PAN IS AVAILABLE ELSE @20\% FOR INDIAN CITIZENS & \\ \hline
+    (C)   LESS: TDS DEDUCTION U/S 195 @ 10.3\% IF PAN IS AVAILABLE ELSE @ 20.6\% FOR NON RESIDENT & \\ \hline
+    \hspace*{\fill}NET AMOUNT (RS.) & \\ \hline
+\end{tabular}
+
+\begin{center}
+    LOCAL CONVEYANCE REIMBURSEMENT 
+\end{center}
+
+\noindent
+\resizebox{\linewidth}{!}{\begin{tabular}{|m{0.39\linewidth}|m{0.39\linewidth}|m{0.17\linewidth}|}\hline
+(D) FROM WHICH PLACE & TO WHICH PLACE & \hspace*{4mm} AMOUNT (RS)\\ \hline
+& & \\ \hline
+& & \\ \hline
+& \hspace*{\fill} AMOUNT (RS) & \\ \hline
+& \hspace*{\fill} GRAND TOTAL(RS) & \\ \hline
+\end{tabular}}
+
+
+\vspace{5mm}
+
+\noindent
+\resizebox{\linewidth}{!}{\begin{tabular}{|m{0.5\linewidth}m{0.28\linewidth}|m{0.17\linewidth}|}\hline
+(E) PAYMENT MODE : & CASH & \\ \hline
+(TICK APPROPRIATE COLOUMN) & CHEQUE & \\ \hline
+& BANK TRANSFER & \ding{51} \\ \hline
+IF BANK TRANSFER : & (a) BANK A/C NUMBER & \uppercase{\accno}\\ \hline
+& (b) BANK NAME \& ADDRESS & \\ \hline
+& & \uppercase{\bankname} \\ \hline
+& & \uppercase{\bankbranch} \\ \hline
+& (c) IFSC CODE & \uppercase{\ifsc} \\ \hline
+& (d) SWIFT CODE : & \uppercase{\swift} \\ \hline
+\end{tabular}}
+
+\bigskip
+
+\noindent
+\resizebox{\linewidth}{!}{
+\begin{tabular}{m{0.45\linewidth}|m{0.25\linewidth}|m{0.25\linewidth}|} \cline{2-3}
+    (F) CASH AMOUNT TO BE COLLECTED BY & ROLL NO. & NAME \\ \cline{2-3}
+     &  & \\ \cline{2-3}
+\end{tabular}}
+
+\bigskip
+
+\noindent
+\resizebox{\linewidth}{!}{
+\begin{tabular}{|m{0.25\linewidth}|m{0.2\linewidth}|m{0.26\linewidth}|m{0.25\linewidth}|}\hline
+     BUDGET DETAILS & FOR HONORARIUM(RS) & FOR LOCAL CONVEYANCE(RS) & AMT PASSED FOR PAYMENT \\ \hline
+     AVAILABLE BUDGET & & & (IN WORDS) :- \\ \hline
+     AMT SPENT TILL DATE & & & \\ \hline
+     AMT SPENT NOW & & & (IN FIGURE):- \\ \hline
+     BALANCE AVAILABLE & & & \\ \hline
+     AMT DEBITABLE TO A/CODE & & & \\ \hline
+\end{tabular}}
+
+\bigskip
+\hspace{0.45\linewidth}\includegraphics[height=1.2cm]{example-image-a}\\
+\hspace*{0.45\linewidth}(SIGNATURE OF RECEIVER)
+
+
+\vspace{2cm}
+(SIGNATURE OF SANCTIONING AUTHORITY)   \hspace{\fill}(SIGNATURE OF PASSING AUTHORITY)
+
+\end{document}
