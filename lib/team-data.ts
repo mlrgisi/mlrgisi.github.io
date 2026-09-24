@@ -69,7 +69,7 @@ export const teamMembers: TeamMember[] = [
     website: 'http://web.isical.ac.in/~swagatam.das/',
     email: 'swagatam.das@isical.ac.in',
     scholar: 'https://scholar.google.co.in/citations?hl=en&user=L8XYpAwAAAAJ&view_op=list_works&sortby=pubdate',
-    bio: ' Professor-in-Charge (2024 – 26) Computer and Communication Sciences Division, ISI ',
+    bio: ' ',
   },
   {
     id: '5',
