@@ -14,7 +14,15 @@ export interface NewsItem {
 }
 
 export const newsItems: NewsItem[] = [
-  {
+ {
+    id: '5',
+    type: 'announcement',
+    title: 'Pre-PhD Talk',
+    date: '2026-10-06',
+    uploadDate: '2026-10-06',
+    content: 'We congratulate our SRF Mr. Priyobrata Mondal for presenting his thoughtful work on the Pre-PhD Seminar.',
+ }, 
+ {
     id: '4',
     type: 'announcement',
     title: 'New Research Members Join',
