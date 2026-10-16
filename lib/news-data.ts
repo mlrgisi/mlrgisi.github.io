@@ -153,6 +153,20 @@ export const newsItems: NewsItem[] = [
     date: '2025-06-20',
     uploadDate: '2025-06-20',
     type: 'event',
+    images: [
+      {
+        url: '/news/2025/PrePhD1.jpg',
+        caption: 'Towards a Journey from Mr. to Dr. (Mr. Anish Chakrabarty).'
+      },
+      {
+        url: '/news/2025/PrePhD4.jpg',
+        caption: 'Towards a Journey from Mr. to Dr. (Mr. Faizanuddin Ansari).'
+      },
+      {
+        url: '/news/2025/PrePhD7.jpg',
+        caption: 'Towards a Journey from Mr. to Dr. (Mr. Kushal Bose).'
+      },
+    ],
     content: 'We congratulate our SRFs Mr. Anish, Mr. Faizan, and Mr. Kushal for presenting their thoughtful works in the Pre-PhD Seminars.',
   },
   {
@@ -171,7 +185,11 @@ export const newsItems: NewsItem[] = [
     type: 'award',
     images: [
       {
-        url: '/news/2026/PhDDefense9.JPG',
+        url: '/news/2025/PhDDefense9.JPG',
+        caption: 'A Journey from Mrs. to Dr. (Dr. Susmita Sen).'
+      },
+      {
+        url: '/news/2025/PhDDefense9.2.jpg',
         caption: 'A Journey from Mrs. to Dr. (Dr. Susmita Sen).'
       },
     ],
