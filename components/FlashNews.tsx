@@ -33,9 +33,9 @@ Where:
 
 export function ImportantMessageModal({
   title = "Important Announcement",
-  message = `# WSDL 2026 is Live! 🎉
+  message = `# WSDL 2027 is Live! 🎉
 
-Mark Your Calendars! [WSDL 2026](https://web.isical.ac.in/~wsdl) | Jan 16 – Mar 8, 2026
+Mark Your Calendars! [WSDL 2027](https://web.isical.ac.in/~wsdl) | Jan 29 – Mar 7, 2027
 
 Registration will begin soon.
 
@@ -71,7 +71,7 @@ Registration will begin soon.
     setIsVisible(false);
     // Mark as shown in sessionStorage
     sessionStorage.setItem(storageKey, 'true');
-    window.open('https://sites.google.com/view/wsdl26', '_blank');
+    window.open('https://sites.google.com/view/wsdl2027', '_blank');
   };
 
   return (
